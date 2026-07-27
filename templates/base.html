@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Site{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='Images/dumbbell.png') }}">
   </head>
   <body>
     <header>
@@ -25,5 +26,7 @@
     <footer>
       <p>© 2026 Copyright</p>
     </footer>
+
+    <script src="{{ url_for('static', filename='javascript/index.js') }}"></script>
   </body>
 </html>
