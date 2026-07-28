@@ -8,25 +8,29 @@
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='Images/dumbbell.png') }}">
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="{{ url_for('index') }}">Home</a></li>
-          <li><a href="{{ url_for('membership') }}">Membership</a></li>
-          <li><a href="{{ url_for('about') }}">About Us</a></li>
-          <li><a href="{{ url_for('contact') }}">Contact</a></li>
-        </ul>
-      </nav>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="{{ url_for('index') }}">UU FakeGym</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <ul class="nav-links">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('membership') }}">Membership</a></li>
+            <li><a href="{{ url_for('about') }}">About Us</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
       {% block content %}{% endblock %}
     </main>
 
-    <footer>
-      <p>© 2026 Copyright</p>
+    <footer class="site-footer">
+      <p>© 2026 UU FakeGym. All rights reserved.</p>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="{{ url_for('static', filename='javascript/index.js') }}"></script>
   </body>
 </html>
