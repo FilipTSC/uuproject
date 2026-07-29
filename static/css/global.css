@@ -1,0 +1,43 @@
+:root {
+  --accent: #d4af37;
+  --accent-hover: #f3cf55;
+  --bg-dark: #070d19;
+  --text-main: #ffffff;
+  --text-muted: #94a3b8;
+  --error-color: #ff3366;
+  --glass-bg: rgba(11, 22, 44, 0.85);
+  --glass-border: rgba(212, 175, 55, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  background: linear-gradient(135deg, var(--bg-dark), #10213f 70%, #0f1c34);
+  color: var(--text-main);
+}
+
+main {
+  flex: 1;
+  width: min(1100px, calc(100% - 2rem));
+  margin: 2rem auto 3rem;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
