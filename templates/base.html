@@ -8,6 +8,18 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     {% block head_extra %}{% endblock %}
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='Images/dumbbell.png') }}">
+    <style>
+
+
+body {
+  background-image: url("{{ url_for('static', filename='gym.jpg') }}");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* color: #CCFF00;  /* remove if plain white is preferred (or another colour) */
+}
+    </style>
   </head>
   <body>
     <header class="site-header">
