@@ -1,1 +1,18 @@
+#paragraph-one, #paragraph-two {
+  font-size: 3.375rem;
+  font-weight: bold;
+  color: rgba(244, 233, 211, 0.85);
+  -webkit-text-stroke-color: #d4af37;
+  -webkit-text-stroke-width: 0.094rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+/* #paragraph-two {
+  margin-top: 0;
+} */
+p {
+  color: rgba(244, 233, 211, 0.85);
+}
+
 

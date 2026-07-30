@@ -2,7 +2,7 @@
   --accent: #d4af37;
   --accent-hover: #f3cf55;
   --bg-dark: #070d19;
-  --text-main: #ffffff;
+  --text-main: rgba(244, 233, 211, 0.85);
   --text-muted: #94a3b8;
   --error-color: #ff3366;
   --glass-bg: rgba(11, 22, 44, 0.85);
