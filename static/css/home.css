@@ -1,18 +1,54 @@
-#paragraph-one, #paragraph-two {
+#header-one {
   font-size: 3.375rem;
   font-weight: bold;
   color: rgba(244, 233, 211, 0.85);
   -webkit-text-stroke-color: #d4af37;
   -webkit-text-stroke-width: 0.094rem;
-  margin-bottom: 0;
-  text-align: center;
+  /* margin-top: 12.5rem;
+  text-align: center; */
+  margin: 0;
+  position: absolute;
+  top: 40%; /* repositions on y-axis */
+  bottom: 50%;
+  transform: translate(50%, 0% ); /* 2nd % repositions on y-axis */
 }
 
-/* #paragraph-two {
-  margin-top: 0;
-} */
-p {
-  color: rgba(244, 233, 211, 0.85);
+#header-two {
+  text-align: center;
+  font-style: italic;
+  font-weight: lighter; /* may reposition on x-axis depending on weight chosen */
+  margin: 0;
+  position: absolute;
+  top: 50%; /* repositions on y-axis */
+  bottom: 50%;
+  transform: translate(70%, 0% ); /* 2nd % repositions on y-axis */
 }
+
+h2 {
+  text-align: center;
+  margin: 0;
+  position: absolute;
+  top: 75%; /* repositions on y-axis */
+  bottom: 50%;
+  transform: translate(100%, 0% ); /* 2nd % repositions on y-axis */
+}
+
+img {
+  display: flex;
+  padding: 1.25rem;
+  border-radius: 2.5rem;
+  display: grid;
+}
+
+.gallery {
+  display: flex;
+}
+/* Create three equal columns that sits next to each other */
+.column {
+  /* flex: 1; */
+  min-width: 300px;
+}
+
+
 
 
