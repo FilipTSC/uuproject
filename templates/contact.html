@@ -2,7 +2,72 @@
 
 {% block title %}Contact{% endblock %}
 
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+{% endblock %}
+
 {% block content %}
-<h1>Contact</h1>
-<p>Contact details placeholder.</p>
+<section class="contact-page" aria-labelledby="contact-heading">
+  <div class="contact-hero">
+    <p class="section-eyebrow">Plan your visit</p>
+    <h1 id="contact-heading">Contact the team</h1>
+    <p>Drop us a note for memberships, classes, or a quick tour of our studio. We reply within one business day.</p>
+  </div>
+
+  <div class="contact-grid">
+    <article class="contact-card contact-info">
+      <h2>Visit or call</h2>
+      <ul class="contact-list">
+        <li><strong>Address:</strong> 42 Wellness Avenue, Belfast</li>
+        <li><strong>Phone:</strong> +44 20 5555 1234</li>
+        <li><strong>Email:</strong> hello@uufakegym.co</li>
+      </ul>
+      <p class="contact-note">Our front desk is happy to help with your first session or a personalised fitness plan.</p>
+    </article>
+
+    <section class="contact-card" aria-labelledby="contact-form-heading">
+      <h2 id="contact-form-heading">Send a mock enquiry</h2>
+      <form id="contactForm" class="contact-form" novalidate>
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" class="field-input" required minlength="2">
+          <p class="field-error" data-error-for="name" aria-live="polite"></p>
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" class="field-input" required>
+          <p class="field-error" data-error-for="email" aria-live="polite"></p>
+        </div>
+
+        <div class="form-row">
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject" type="text" class="field-input" required minlength="3">
+          <p class="field-error" data-error-for="subject" aria-live="polite"></p>
+        </div>
+
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" class="field-input" rows="5" required minlength="10"></textarea>
+          <p class="field-error" data-error-for="message" aria-live="polite"></p>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="primary-btn">Send enquiry</button>
+          <button type="reset" class="secondary-btn">Clear</button>
+        </div>
+
+        <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </div>
+
+  <section class="saved-messages" aria-labelledby="saved-messages-heading">
+    <div class="saved-header">
+      <h2 id="saved-messages-heading">Recent mock enquiries</h2>
+      <p>Stored locally in your browser so the page feels interactive.</p>
+    </div>
+    <ul id="savedMessages" class="saved-list"></ul>
+  </section>
+</section>
 {% endblock %}
