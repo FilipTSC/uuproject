@@ -2,7 +2,7 @@
   --accent: #d4af37;
   --accent-hover: #f3cf55;
   --bg-dark: #070d19;
-  --text-main: #ffffff;
+  --text-main: rgba(244, 233, 211, 0.85);
   --text-muted: #94a3b8;
   --error-color: #ff3366;
   --glass-bg: rgba(11, 22, 44, 0.85);
@@ -38,14 +38,8 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /*Ensures this sits behind the navbar and main form */
-
-  /*Adjust the 0.6 value to make it darker or lighter (0.0 to 1.0) */
-  background: rgba(7, 13, 25, 0.4);
-
-  /*Adjust the 8px value for more or less blur */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  z-index: -1; 
+  filter: blur(5px) brightness(60%);
 }
 
 main {
