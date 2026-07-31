@@ -11,14 +11,22 @@
     <style>
 
 
-body {
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url("{{ url_for('static', filename='gym.jpg') }}");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  /* color: #CCFF00;  /* remove if plain white is preferred (or another colour) */
+  filter: blur(5px) brightness(60%);
+  z-index: -1;
 }
+
     </style>
   </head>
   <body>

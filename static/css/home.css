@@ -53,6 +53,11 @@ img {
   min-width: 300px;
 }
 
+background-image {
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
 
 
 
