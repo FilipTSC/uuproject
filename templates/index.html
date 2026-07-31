@@ -3,6 +3,8 @@
 {% block title %}Home{% endblock %}
 
 {% block head_extra %}
+<script type="text/javascript" src="{{ url_for('static', filename='jquery/dist/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
 {% endblock %}
 
@@ -11,7 +13,7 @@
 <!-- <p>Welcome to the home page (placeholder).</p> -->
 <h1 id="header-one">WORK. TRAIN. PLAY.</h1>
 <h2 id="header-two">It never gets easier. You just get stronger.</h2>
-<h2>What's going on at UU Fakegym</h2>
+<h2>What's going on at Platinum Fitness</h2>
 <section class="gallery">
   <figure class="column">
     <img src="{{ url_for('static', filename='gym2.jpeg') }}" width="400" height="300" alt="gym equipment on a gym floor as sun shines through the window">
