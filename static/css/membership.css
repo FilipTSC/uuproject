@@ -1,66 +1,28 @@
-/* --- GYM Global Styles & Variables --- */
-:root {
-    --accent: #d4af37;            
-    --accent-hover: #f3cf55;      
-    --bg-dark: #070d19;           
-    --text-main: #ffffff;
-    --text-muted: #cbd5e1; 
-    --error-color: #ff4d79; 
-    --glass-bg: rgba(11, 22, 44, 0.85);     
-    --glass-border: rgba(212, 175, 55, 0.2);  
-}
+/* =========================
+   Base / Shared Styles
+========================= */
 
-* {
-    box-sizing: border-box;
-}
-
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-main);
-    min-height: 100vh;
-}
-
-a {
-    color: var(--accent);
-    text-decoration: underline;
-    padding: 6px; 
-    display: inline-block;
-    min-height: 44px;
-}
-
-/* --- Background Setup --- */
 .page-wrapper {
-    min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    background: linear-gradient(to bottom, rgba(7, 13, 25, 0.85), rgba(4, 8, 16, 0.95)), 
-                url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    align-items: flex-start;
+    padding: clamp(0.75rem, 2vw, 2rem);
 }
 
-/* --- Glassmorphism Form Container --- */
 .signup-container {
+    width: min(100%, 1100px);
     background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: clamp(1rem, 2.2vw, 2.2rem);
+    box-shadow: 0 20px 42px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    padding: 3rem;
-    border-radius: 16px;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.6);
-    width: 100%;
-    max-width: 550px;
 }
 
 .form-header {
     text-align: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.2rem;
 }
 
 .form-header h1 {
@@ -68,389 +30,476 @@ a {
     color: var(--accent);
     text-transform: uppercase;
     font-weight: 900;
-    font-size: 2.5rem;
-    letter-spacing: 3px;
+    font-size: clamp(1.7rem, 4vw, 2.3rem);
+    letter-spacing: 2px;
     font-style: italic;
 }
 
 .form-header p {
+    margin: 0.4rem 0 0;
     color: var(--text-muted);
     font-size: 0.95rem;
-    margin-top: 0.5rem;
 }
 
-/* --- Fieldsets & Legends --- */
+#gym-signup-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+}
+
 fieldset {
-    border: none;
+    border: 0;
     border-top: 1px solid var(--glass-border);
-    padding: 1.5rem 0 0 0;
-    margin-bottom: 2rem;
+    margin: 0;
+    padding: 1rem 0 0;
 }
 
 legend {
-    font-weight: 700;
     color: var(--accent);
-    padding: 0 10px;
-    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 700;
     letter-spacing: 1px;
-    font-size: 0.85rem;
+    text-transform: uppercase;
+    padding: 0 8px;
 }
 
-/* --- Tier Cards (Grid Layout & Custom Radio Styling) --- */
+/* =========================
+   Tier Cards
+========================= */
+
 .tier-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
     margin-bottom: 0.5rem;
 }
 
-.tier-card {
+.tier-card,
+.duration-btn {
     cursor: pointer;
 }
 
-.tier-card input[type="radio"] {
-    display: none; 
+.tier-card input[type="radio"],
+.duration-btn input[type="radio"] {
+    display: none;
 }
 
 .tier-content {
-    background: rgba(255, 255, 255, 0.03);
-    border: 2px solid var(--glass-border);
+    height: 100%;
+    min-height: 44px;
     border-radius: 10px;
+    border: 2px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.03);
     padding: 1.5rem 1rem;
     text-align: center;
-    transition: all 0.3s ease;
-    height: 100%;
+    transition: all 0.25s ease;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 44px;
 }
 
-.tier-content h3 {
-    margin: 0 0 10px 0;
+.tier-content .tier-title {
+    margin: 0 0 10px;
     color: var(--accent);
     font-size: 1.2rem;
     text-transform: uppercase;
 }
 
 .tier-content .price {
+    margin: 0;
+    color: #fff;
     font-size: 1.8rem;
     font-weight: 900;
-    margin: 0;
-    color: white;
 }
 
 .tier-content .price span {
-    font-size: 0.9rem;
-    font-weight: normal;
     color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 400;
 }
 
 .tier-content .desc {
-    font-size: 0.75rem;
+    margin: 10px 0 0;
     color: var(--text-muted);
-    margin-top: 10px;
+    font-size: 0.75rem;
+    line-height: 1.35;
 }
 
-/* Selected Tier Card State */
-.tier-card input[type="radio"]:checked + .tier-content {
+.tier-card input[type="radio"]:checked+.tier-content {
     background: var(--accent);
     border-color: var(--accent);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(212, 175, 55, 0.25);
 }
 
-.tier-card input[type="radio"]:checked + .tier-content h3,
-.tier-card input[type="radio"]:checked + .tier-content .price,
-.tier-card input[type="radio"]:checked + .tier-content .price span,
-.tier-card input[type="radio"]:checked + .tier-content .desc,
-.tier-card input[type="radio"]:checked + .tier-content .recommended-badge {
+.tier-card input[type="radio"]:checked+.tier-content .tier-title,
+.tier-card input[type="radio"]:checked+.tier-content .price,
+.tier-card input[type="radio"]:checked+.tier-content .price span,
+.tier-card input[type="radio"]:checked+.tier-content .desc,
+.tier-card input[type="radio"]:checked+.tier-content .recommended-badge {
     color: var(--bg-dark);
 }
 
-.tier-card input[type="radio"]:checked + .tier-content .recommended-badge {
+.tier-card input[type="radio"]:checked+.tier-content .recommended-badge {
     background: var(--bg-dark);
     color: var(--accent);
 }
 
-/* --- Duration Pill Buttons --- */
+.recommended-badge {
+    align-self: center;
+    display: inline-block;
+    margin-bottom: 8px;
+    border-radius: 999px;
+    padding: 2px 8px;
+    background: var(--accent);
+    color: var(--bg-dark);
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+}
+
+/* =========================
+   Duration Buttons
+========================= */
+
 .duration-section {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .duration-label {
+    margin: 0 0 0.6rem;
     color: var(--text-muted);
     font-size: 0.75rem;
-    text-transform: uppercase;
-    margin-bottom: 0.8rem;
-    margin-top: 0;
     letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
 }
 
 .duration-options {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-    gap: 10px;
-}
-
-.duration-btn {
-    cursor: pointer;
-}
-
-.duration-btn input[type="radio"] {
-    display: none;
+    grid-template-columns: 1fr;
+    gap: 8px;
 }
 
 .duration-btn span {
+    min-height: 66px;
+    border-radius: 8px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-main);
+    padding: 0.75rem 0.5rem;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--glass-border);
-    color: var(--text-main);
-    text-align: center;
-    padding: 0.8rem 0.5rem;
-    border-radius: 6px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    height: 100%;
-    min-height: 44px;
+    transition: all 0.25s ease;
 }
 
-.duration-btn:hover span {
-    background: rgba(212, 175, 55, 0.1);
-    border-color: var(--accent);
-}
-
-.duration-btn input[type="radio"]:checked + span {
+.duration-btn input[type="radio"]:checked+span {
     background: var(--accent);
-    color: var(--bg-dark);
     border-color: var(--accent);
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
-    transform: translateY(-2px);
+    color: var(--bg-dark);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
 }
 
-.duration-btn input[type="radio"]:checked + span .recommended-badge-small {
+.duration-btn input[type="radio"]:checked+span .recommended-badge-small {
     background: var(--bg-dark);
     color: var(--accent);
-}
-
-/* --- Recommended Badges --- */
-.recommended-badge {
-    background: var(--accent);
-    color: var(--bg-dark);
-    font-size: 0.65rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 10px;
-    display: inline-block;
-    margin-bottom: 8px;
-    align-self: center;
-    letter-spacing: 1px;
 }
 
 .duration-btn span.has-badge {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 3px;
 }
 
 .recommended-badge-small {
+    display: inline-block;
+    border-radius: 6px;
+    padding: 1px 6px;
     background: var(--accent);
     color: var(--bg-dark);
-    font-size: 0.55rem;
-    font-weight: bold;
-    padding: 2px 6px;
-    border-radius: 6px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
 }
 
-/* --- Form Inputs --- */
+/* =========================
+   Form Inputs
+========================= */
+
 .form-group {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1.2rem;
+    gap: 0.45rem;
+    margin-bottom: 0.8rem;
 }
 
-input[type="text"],
-input[type="email"],
-select {
-    background: rgba(255, 255, 255, 0.04);
-    border: none;
-    border-bottom: 2px solid var(--glass-border);
-    padding: 1rem;
-    color: white;
-    font-family: inherit;
-    font-size: 1rem;
-    border-radius: 4px 4px 0 0;
-    transition: all 0.3s ease;
-    width: 100%;
-    min-height: 44px;
+.form-group>label {
+    font-weight: 600;
+    line-height: 1.2;
 }
 
-input::placeholder {
-    color: rgba(255, 255, 255, 0.3);
-}
-
-input:focus, select:focus {
-    outline: none;
-    background: rgba(255, 255, 255, 0.08);
-    border-bottom-color: var(--accent);
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
-}
-
-/* --- Promo Group & Price Summary --- */
 .promo-group {
+    gap: 0.45rem;
+}
+
+.promo-controls {
     display: flex;
-    gap: 10px;
-    flex-direction: row;
-}
-
-.promo-group input {
-    flex-grow: 1;
-    border-radius: 4px;
-}
-
-.btn-secondary {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: 1px solid var(--glass-border);
-    padding: 0 1.5rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-weight: bold;
-    text-transform: uppercase;
-    width: auto;
-    min-height: 44px;
-}
-
-.btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.2);
+    flex-direction: column;
+    gap: 8px;
 }
 
 .promo-msg {
-    font-size: 0.85rem;
-    margin-top: 0.4rem;
     display: block;
+    margin-top: 0.2rem;
+    font-size: 0.85rem;
 }
 
-.promo-success { color: #4ade80; }
-.promo-fail { color: var(--error-color); }
+.promo-success {
+    color: #4ade80;
+}
+
+.promo-fail {
+    color: var(--error-color);
+}
+
+/* =========================
+   Buttons
+========================= */
+
+#submitBtn {
+    width: 100%;
+    display: block;
+    align-self: stretch;
+}
+
+.tier-content:hover {
+    border-color: var(--accent);
+    background: rgba(212, 175, 55, 0.08);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 18px rgba(212, 175, 55, 0.18);
+}
+
+.duration-btn span:hover {
+    border-color: var(--accent);
+    background: rgba(212, 175, 55, 0.1);
+    transform: translateY(-2px);
+}
+
+.btn-cancel {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.9rem 1rem;
+    background: transparent;
+    color: var(--error-color);
+    border: 2px solid var(--error-color);
+    border-radius: 8px;
+}
+
+.btn-cancel:hover {
+    background: var(--error-color);
+    color: #fff;
+    box-shadow: 0 0 12px rgba(255, 51, 102, 0.3);
+}
+
+/* =========================
+   Checkout Panel
+========================= */
+
+.checkout-panel {
+    margin-top: 0.5rem;
+    border-radius: 12px;
+    padding: 0.9rem;
+    background: rgba(8, 15, 28, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.28);
+}
 
 .price-summary {
-    background: rgba(0, 0, 0, 0.4);
+    margin-bottom: 0.8rem;
     border: 1px solid var(--accent);
-    padding: 1rem;
-    border-radius: 8px;
-    text-align: center;
-    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.35);
+    padding: 0.8rem;
+    text-align: left;
 }
 
 .price-summary p {
-    margin: 0;
-    font-size: 1.1rem;
+    margin: 0 0 0.35rem;
     color: var(--text-muted);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
 }
 
 .price-summary strong {
+    margin: 0;
     color: var(--accent);
-    font-size: 1.5rem;
-    margin-left: 10px;
+    font-size: 1.65rem;
+    line-height: 1;
+    display: block;
 }
 
-/* --- Buttons --- */
-button {
-    width: 100%;
-    padding: 1.2rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 800;
+.checkout-details {
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 10px;
+    padding: 0.7rem 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.checkout-details .checkout-title {
+    margin: 0 0 0.45rem;
+    color: var(--accent);
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    min-height: 44px;
+    letter-spacing: 0.06em;
 }
 
-.btn-primary {
-    background-color: var(--accent);
-    color: var(--bg-dark);
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+.checkout-details p {
+    margin: 0.28rem 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.6rem;
+    color: var(--text-muted);
+    font-size: 0.86rem;
 }
 
-.btn-primary:hover {
-    background-color: var(--accent-hover);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 25px rgba(212, 175, 55, 0.45);
+.checkout-details strong {
+    color: #fff;
+    font-size: 0.9rem;
 }
 
-.btn-danger {
-    background-color: transparent;
-    border: 2px solid var(--error-color);
-    color: var(--error-color);
-    margin-top: 1.5rem;
+.checkout-perks {
+    margin: 0 0 0.75rem;
+    padding-left: 1rem;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    line-height: 1.35;
 }
 
-.btn-danger:hover {
-    background-color: var(--error-color);
-    color: white;
-    box-shadow: 0 0 15px rgba(255, 51, 102, 0.3);
+.checkout-perks li {
+    margin-bottom: 0.25rem;
 }
 
-/* --- Error States --- */
-.error-text {
-    color: var(--error-color);
-    font-size: 0.8rem;
-    margin-top: 0.5rem;
-    font-weight: 600;
-    display: none;
-}
+/* =========================
+   Dashboard / Pass
+========================= */
 
-/* --- Digital Pass Dashboard --- */
 .dashboard-card h2 {
     text-align: center;
     font-style: italic;
     font-weight: 900;
+    margin: 0 auto;
+    max-width: 760px;
 }
 
 .digital-pass {
-    background: linear-gradient(135deg, #111d35 0%, #070d19 100%);
+    width: min(100%, 520px);
+    margin: 1.25rem auto;
+    border-radius: 12px;
     border: 1px solid rgba(212, 175, 55, 0.2);
     border-left: 4px solid var(--accent);
     padding: 2rem;
-    border-radius: 12px;
-    margin: 1.5rem 0;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(135deg, #111d35 0%, #070d19 100%);
 }
 
 .pass-header {
     position: absolute;
     top: 15px;
     right: 20px;
-    font-size: 0.7rem;
     color: var(--accent);
+    font-size: 0.7rem;
     letter-spacing: 2px;
 }
 
 #dash-name {
+    margin: 0 0 1rem;
     font-size: 1.8rem;
-    margin: 0 0 1rem 0;
     text-transform: uppercase;
 }
 
 .pass-details p {
     margin: 0.5rem 0;
-    font-size: 0.9rem;
     color: var(--text-muted);
+    font-size: 0.9rem;
 }
 
 .pass-details span {
-    color: white;
-    font-weight: bold;
+    color: #fff;
+    font-weight: 700;
+}
+
+.is-hidden {
+    display: none;
+}
+
+.qr-container {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.qr-image {
+    border-radius: 8px;
+    border: 2px solid var(--accent);
+}
+
+/* =========================
+   Tablet / Small Desktop
+========================= */
+
+@media (min-width: 640px) {
+    .tier-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .duration-options {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .promo-controls {
+        flex-direction: row;
+    }
+
+    .promo-controls .field-input {
+        flex: 1;
+    }
+}
+
+/* =========================
+   Desktop Layout
+========================= */
+
+@media (min-width: 1024px) {
+    .signup-container {
+        max-width: 1160px;
+        padding: 1.4rem 1.6rem;
+    }
+
+    #gym-signup-form {
+        grid-template-columns: minmax(0, 1.55fr) minmax(280px, 340px);
+        gap: 0.9rem 1rem;
+        align-items: start;
+    }
+
+    #gym-signup-form>fieldset {
+        grid-column: 1;
+    }
+
+    .tier-cards {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .checkout-panel {
+        grid-column: 2;
+        grid-row: 1 / span 3;
+        position: sticky;
+        top: calc(var(--sticky-header-offset) + 0.35rem);
+        margin-top: 0.9rem;
+    }
 }

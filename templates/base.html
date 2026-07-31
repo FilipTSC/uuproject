@@ -1,50 +1,43 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}Site{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
-    {% block head_extra %}{% endblock %}
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='Images/dumbbell.png') }}">
-    <style>
 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="{% block meta_description %}UU FakeGym in Belfast. Explore memberships, contact the team, and start your fitness journey today.{% endblock %}">
+  <title>{% block title %}Site{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+  {% block head_extra %}{% endblock %}
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/dumbbell.png') }}">
+</head>
 
-body {
-  background-image: url("{{ url_for('static', filename='gym.jpg') }}");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  /* color: #CCFF00;  /* remove if plain white is preferred (or another colour) */
-}
-    </style>
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container">
-        <a class="brand" href="{{ url_for('index') }}">UU FakeGym</a>
-        <nav class="site-nav" aria-label="Primary navigation">
-          <ul class="nav-links">
-            <li><a href="{{ url_for('index') }}">Home</a></li>
-            <li><a href="{{ url_for('membership') }}">Membership</a></li>
-            <li><a href="{{ url_for('about') }}">About Us</a></li>
-            <li><a href="{{ url_for('contact') }}">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="{{ url_for('index') }}">UU FakeGym</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <ul class="nav-links">
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('membership') }}">Membership</a></li>
+          <li><a href="{{ url_for('about') }}">About Us</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-      {% block content %}{% endblock %}
-    </main>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
 
-    <footer class="site-footer">
-      <p>© 2026 UU FakeGym. All rights reserved.</p>
-    </footer>
+  <footer class="site-footer">
+    <p>© 2026 UU FakeGym. All rights reserved.</p>
+  </footer>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="{{ url_for('static', filename='javascript/index.js') }}"></script>
-  </body>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="{{ url_for('static', filename='javascript/global.js') }}"></script>
+  {% block page_scripts %}{% endblock %}
+</body>
+
 </html>
