@@ -3,31 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+    content="{% block meta_description %}Platinum Fitness in Belfast. Explore memberships, contact the team, and start your fitness journey today.{% endblock %}">
     <title>{% block title %}Site{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     {% block head_extra %}{% endblock %}
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='Images/dumbbell.png') }}">
-    <style>
-
-
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("{{ url_for('static', filename='gym.jpg') }}");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  filter: blur(5px) brightness(60%);
-  z-index: -1;
-}
-
-    </style>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/dumbbell.png') }}">
   </head>
   <body>
     <header class="site-header">
@@ -44,15 +26,16 @@ body::before {
       </div>
     </header>
 
-    <main>
-      {% block content %}{% endblock %}
-    </main>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
 
     <footer class="site-footer">
       <p>© 2026 Platinum Fitness. All rights reserved.</p>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="{{ url_for('static', filename='javascript/index.js') }}"></script>
-  </body>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="{{ url_for('static', filename='javascript/global.js') }}"></script>
+  {% block page_scripts %}{% endblock %}
+</body>
 </html>
