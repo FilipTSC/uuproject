@@ -1,0 +1,87 @@
+/* about-page / hero-banner: full-width image hero with overlay (templates/about.html .about-page.hero-banner) */
+.hero-banner {
+  position: relative;
+  width: 100%;
+  min-height: 350px;
+  max-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1.25rem;
+  background-image: linear-gradient(rgba(7, 13, 25, 0.65), rgba(7, 13, 25, 0.65)),
+    url("../images/lifting_image.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-banner .section-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.5rem;
+}
+
+.hero-banner h1 {
+  margin: 0 0 0.75rem;
+}
+
+.hero-banner > p:last-of-type {
+  max-width: 40ch;
+  margin: 0;
+}
+
+/* about-story: "Our story" section, now also holds the hero CTA buttons (templates/about.html .about-story) */
+.about-story {
+  padding: 2rem 1.25rem;
+}
+
+.about-story .hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+/* about-mission: "Our Mission" section (templates/about.html .about-mission) */
+.about-mission {
+  padding: 2rem 1.25rem;
+}
+
+/* about-team: "Meet the team" section and its card grid (templates/about.html .about-team) */
+.about-team {
+  padding: 2rem 1.25rem;
+}
+
+.about-team .team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.about-team .team-card {
+  text-align: center;
+}
+
+.about-team .team-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  margin: 0 auto 0.75rem;
+  background: rgba(212, 175, 55, 0.16);
+}
+
+/* about-info: quick-facts card row (templates/about.html .about-info) */
+.about-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem 1.25rem;
+}
+
+.about-info .info-card {
+  padding: 1.25rem;
+  text-align: center;
+}
