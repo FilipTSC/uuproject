@@ -16,23 +16,43 @@
 </section>
 
 <section class="about-story" aria-labelledby="story-heading">
-    <h2 id="story-heading">Our story</h2>
+    <h2 id="story-heading">Our Story</h2>
     <p>
-        Founded by a group of Ulster University students who couldn't find an
-        affordable gym near campus, UU FakeGym opened its doors with one goal:
-        24/7 access without the contract stress.
+        UU FakeGym was founded by a group of Ulster University students in 2026
+        with a simple belief: <strong>getting fit should not cost a fortune.</strong>
     </p>
-    <div class="hero-actions">
-        <a href="{{ url_for('membership') }}" class="btn-primary">Join now</a>
-        <a href="#team" class="secondary-btn">Meet the team</a>
+
+    <p>
+        We wanted to create an affordable, welcoming gym for students and the
+        wider Belfast community - without expensive memberships or unnecessary
+        contract stress.
+    </p>
+
+    <p>
+        Today, we are proud to be <strong>Belfasts most affordable gym</strong>,
+        offering 24/7 access and a place where everyone can feel comfortable
+        working towards their goals.
+    </p>
+    <div class="story-images">
+        <figure>
+            <img src="{{ url_for('static', filename='Images/gym_image_1.jpeg') }}" alt="A trainer spotting a member during a resistance cable exercise">
+            <figcaption>Strength &amp; Progress</figcaption>
+        </figure>
+        <figure>
+            <img src="{{ url_for('static', filename='Images/gym_image_2.jpeg') }}" alt="A trainer coaching a member through a seated shoulder press">
+            <figcaption>Fitness for everyone</figcaption>
+        </figure>
+        <figure>
+            <img src="{{ url_for('static', filename='Images/gym_image_3.jpeg') }}" alt="Rows of weight machines and squat racks across the gym floor">
+            <figcaption>Community - train together</figcaption>
+        </figure>
     </div>
 </section>
 
 <section class="about-mission" aria-labelledby="mission-heading">
     <h2 id="mission-heading">Our Mission</h2>
     <p>
-        Placeholder mission statement: to make fitness accessible, affordable,
-        and welcoming for every student on campus.
+        Making fitness affordable, accessible, and welcoming for every student — because everyone deserves a place to get stronger.
     </p>
 </section>
 
@@ -41,19 +61,25 @@
     <div class="team-grid">
 
         <div class="team-card">
-            <div class="team-avatar"></div>
+            <div class="team-avatar">
+                <img src="{{ url_for('static', filename='Images/head_coach.jpg') }}" alt="Head coach smiling in the gym">
+            </div>
             <h3>Head coach</h3>
             <p>Strength and conditioning</p>
         </div>
 
         <div class="team-card">
-            <div class="team-avatar"></div>
+            <div class="team-avatar">
+                <img src="{{ url_for('static', filename='Images/fitness_instructor.jpeg') }}" alt="Class instructor leading a group fitness session">
+            </div>
             <h3>Class instructor</h3>
-            <p>Group sessions</p>
+            <p>Always available for our daily group sessions</p>
         </div>
 
         <div class="team-card">
-            <div class="team-avatar"></div>
+            <div class="team-avatar">
+                <img src="{{ url_for('static', filename='Images/nutrition_advisor.jpeg') }}" alt="Nutrition advisor consulting with a member">
+            </div>
             <h3>Nutrition advisor</h3>
             <p>Member support</p>
         </div>
@@ -62,15 +88,19 @@
 </section>
 
 <section class="about-info">
+    <h2> Benefits </h2>
     <div class="info-card">
+        <img src="{{ url_for('static', filename='Images/open_247.jpeg') }}" alt="Gym floor lit up and ready for members at any hour">
         <h3>Open 24/7</h3>
         <p>Access whenever suits you</p>
     </div>
     <div class="info-card">
+        <img src="{{ url_for('static', filename='Images/belfast_campus.jpeg') }}" alt="View of the Belfast campus near the gym">
         <h3>Belfast campus</h3>
         <p>5 min walk from halls</p>
     </div>
     <div class="info-card">
+        <img src="{{ url_for('static', filename='Images/free_classes.jpeg') }}" alt="Members taking part in a free group fitness class">
         <h3>Free classes</h3>
         <p>Included with Plus and up</p>
     </div>
