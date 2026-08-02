@@ -33,7 +33,7 @@ h2 {
   transform: translate(80%, 0% ); /* 2nd % repositions on y-axis */
 }
 
-img {
+.gym-img {
   display: block;
   padding: 1.25rem;
   border-radius: 2.5rem;
@@ -42,11 +42,27 @@ img {
   margin-right: auto;
   max-width: 100%;
   height: auto;
+  transition: opacity 0.5s ease;
 }
 
 .gallery {
   display: flex;
+
+  position: relative;
+  width: 300px;
 }
+
+.gym-text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  transition: opacity 0.5s ease;
+}
+
+
 /* Create three equal columns that sits next to each other */
 .column {
   flex: 1;
