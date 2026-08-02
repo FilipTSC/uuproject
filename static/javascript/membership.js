@@ -1,8 +1,8 @@
-$(document).ready(function () {
+$(function () {
     console.log("GYM: membership.js loaded successfully.");
 
     // Check if user is already registered on load
-    const membershipStorageKey = 'uuFakeGymMembership';
+    const membershipStorageKey = 'gymMembership';
     checkExistingMember();
 
     const basePrices = {
@@ -21,6 +21,15 @@ $(document).ready(function () {
             "Priority class booking",
             "Exclusive Ultimate member classes"
         ]
+    };
+
+    const durationTexts = {
+        "1_day": "1 Day Pass",
+        "3_days": "3 Day Pass",
+        "7_days": "1 Week Pass",
+        "monthly": "No Contract",
+        "6_months": "6 Months (-10%)",
+        "12_months": "12 Months (-20%)"
     };
 
     let currentTotal = 0;
@@ -198,13 +207,9 @@ $(document).ready(function () {
         let isValid = true;
 
         const tier = $('input[name="tier"]:checked').val();
-        const durationVal = $('input[name="duration"]:checked').val();
 
-        // Extract clean text for duration label
-        let durationText = $('input[name="duration"]:checked').next('span').clone().children().remove().end().text().trim(); // Get the text of the label without child elements
-        if (!durationText) {
-            durationText = $('input[name="duration"]:checked').parent().text().trim(); // Fallback to parent label text if next span is empty
-        }
+        const durationVal = $('input[name="duration"]:checked').val();
+        const durationText = durationTexts[durationVal] || 'Not selected';
 
         const name = $('#fullName').val().trim();
         const email = $('#email').val().trim();
@@ -219,7 +224,7 @@ $(document).ready(function () {
             isValid = false;
         }
 
-        if (name.length < 2) {
+        if (!validateFullName(name)) {
             $('#nameError').text("Please enter your full name.").slideDown();
             isValid = false;
         }
@@ -233,12 +238,12 @@ $(document).ready(function () {
             const finalPrice = `£${currentTotal.toFixed(2)} ${isRecurring ? '/ mo' : ''}`;
 
             // Generate Member ID and Dates
-            const memberId = 'GYM-' + Math.floor(100000 + Math.random() * 900000);
+            const memberId = 'PF-' + Math.floor(100000 + Math.random() * 900000);
             const today = new Date();
             const startDateStr = today.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
             const expiryDateStr = calculateExpiryDate(today, durationVal);
 
-            // Generate clean QR code URL
+            // Generate QR code URL
             const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(memberId)}`;
 
             const gymMember = {
@@ -259,6 +264,10 @@ $(document).ready(function () {
             });
         }
     });
+
+    function validateFullName(name) { 
+        return /^[a-zA-Z'-]{2,}(?:\s+[a-zA-Z'-]{2,})+$/.test(name);
+    }
 
     // Handle Membership Cancellation
     $('#cancelMembershipBtn').on('click', function () {
@@ -295,7 +304,7 @@ $(document).ready(function () {
         // Update QR code image source
         if (data.memberId) {
             const qrSrc = data.qrCodeUrl || `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(data.memberId)}`;
-            $('#dash-qr').attr('src', qrSrc);
+            $('#dash-qr').attr({'src': qrSrc, 'alt': `Membership Pass QR Code for member: ${data.memberId}`});
         }
 
         $('#member-dashboard').fadeIn(600);
