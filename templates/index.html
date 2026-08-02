@@ -2,7 +2,43 @@
 
 {% block title %}Home{% endblock %}
 
-{% block content %}
-<h1>Home</h1>
-<p>Welcome to the home page (placeholder).</p>
+{% block head_extra %}
+<script type="text/javascript" src="{{ url_for('static', filename='jquery/dist/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
 {% endblock %}
+
+{% block content %}
+<!-- <h1>Welcome to UU Fakegym</h1> -->
+<!-- <p>Welcome to the home page (placeholder).</p> -->
+<h1 id="header-one">WORK. TRAIN. PLAY.</h1>
+<h2 id="header-two">It never gets easier. You just get stronger.</h2>
+<h2>What's going on at Platinum Fitness</h2>
+<section class="gallery">
+  <figure class="column">
+    <img src="{{ url_for('static', filename='gym2.jpeg') }}" width="400" height="300" alt="gym equipment on a gym floor as sun shines through the window">
+  </figure>
+  <figure class="column">
+    <img src="{{ url_for('static', filename='gym3.jpg') }}" width="400" height="300" alt="man lifting bar bell from a gym floor">
+  </figure>
+  <figure class="column">
+    <img src="{{ url_for('static', filename='gym4.jpg') }}" width="400" height="300" alt="man lifting bar bell from a gym floor">
+  </figure>
+</section>
+
+<nav class="button-container">
+  <button id="button">Sign up to a membership today!</button>
+<script>
+  document.getElementById("button").onclick = function () {
+    window.location.href = "{{ url_for('membership') }}";
+  };
+</script>
+</nav>
+
+
+<!-- <p>Exercitationem omnis similique sint rem vel consequatur dolor. Tenetur accusantium nisi illum sunt debitis ea. Vitae voluptatem et asperiores quia ut nam. Autem ipsum nam ut velit officia.
+Est provident et ut cumque ut ipsum. Voluptas vel blanditiis omnis enim ut quidem est suscipit. Blanditiis adipisci laudantium ut et corrupti atque qui. Cupiditate hic fugit qui. Dolore est aut ducimus adipisci nihil repudiandae nam in.
+Autem et sed aut aliquid aliquam. Aut eum laboriosam dolor laboriosam incidunt. Perspiciatis soluta placeat qui et corporis voluptas. Distinctio et repellendus ratione aut tempora ea culpa. Vel at vero repellendus velit ut ratione illum qui.
+Doloribus corporis praesentium deserunt. Beatae laboriosam dolore dignissimos aut porro. Similique et deleniti sed. Repellat rerum perferendis ut quidem ea nostrum eveniet sunt. Expedita commodi eos perspiciatis id nostrum vitae. Eligendi et est aliquid aut aut.
+Id facilis rerum amet. Inventore sapiente dicta aut accusamus perspiciatis aperiam consequuntur. Omnis nostrum eius occaecati doloribus qui vitae. Laboriosam magnam odit qui magni iusto.</p>
+{% endblock %} -->

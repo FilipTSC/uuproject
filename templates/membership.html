@@ -2,7 +2,187 @@
 
 {% block title %}Membership{% endblock %}
 
+{% block head_extra %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,900&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/membership.css') }}">
+{% endblock %}
+
 {% block content %}
-<h1>Membership</h1>
-<p>Membership information placeholder.</p>
+<div class="page-wrapper">
+    <section class="signup-container">
+
+        <header class="form-header">
+            <h1>GYM</h1>
+            <p>Select your tier, choose your plan, and start today.</p>
+        </header>
+
+        <form id="gym-signup-form" novalidate>
+
+            <!-- Fieldset 1: Membership Tier -->
+            <fieldset>
+                <legend>1. Select Tier</legend>
+                <div class="tier-cards">
+                    <label class="tier-card">
+                        <input type="radio" name="tier" value="Core" required>
+                        <div class="tier-content">
+                            <p class="tier-title">Core</p>
+                            <p class="price">£22<span>/mo</span></p>
+                            <p class="desc">24/7 access to the gym facilities.</p>
+                        </div>
+                    </label>
+
+                    <label class="tier-card">
+                        <input type="radio" name="tier" value="Plus" checked required>
+                        <div class="tier-content">
+                            <div class="recommended-badge">Recommended</div>
+                            <p class="tier-title">Plus</p>
+                            <p class="price">£28<span>/mo</span></p>
+                            <p class="desc">Core + Includes group classes and Sauna access.</p>
+                        </div>
+                    </label>
+
+                    <label class="tier-card">
+                        <input type="radio" name="tier" value="Ultimate" required>
+                        <div class="tier-content">
+                            <p class="tier-title">Ultimate</p>
+                            <p class="price">£36<span>/mo</span></p>
+                            <p class="desc">Plus + Access to all group classes, bring a guest.</p>
+                        </div>
+                    </label>
+                </div>
+                <p id="tierError" class="field-error"></p>
+            </fieldset>
+
+            <!-- Fieldset 2: Duration -->
+            <fieldset>
+                <legend>2. Select Duration</legend>
+
+                <div class="duration-section">
+                    <p class="duration-label">Short-Term Passes (Pay Once)</p>
+                    <div class="duration-options">
+                        <label class="duration-btn">
+                            <input type="radio" name="duration" value="1_day" required>
+                            <span>1 Day Pass</span>
+                        </label>
+                        <label class="duration-btn">
+                            <input type="radio" name="duration" value="3_days" required>
+                            <span>3 Day Pass</span>
+                        </label>
+                        <label class="duration-btn">
+                            <input type="radio" name="duration" value="7_days" required>
+                            <span>1 Week Pass</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="duration-section">
+                    <p class="duration-label">Memberships (Pay Monthly)</p>
+                    <div class="duration-options">
+                        <label class="duration-btn">
+                            <input type="radio" name="duration" value="monthly" required>
+                            <span>No Contract</span>
+                        </label>
+                        <label class="duration-btn">
+                            <input type="radio" name="duration" value="6_months" required>
+                            <span>6 Months (-10%)</span>
+                        </label>
+
+                        <label class="duration-btn">
+                            <input type="radio" name="duration" value="12_months" checked required>
+                            <span class="has-badge">
+                                <div class="recommended-badge-small">Recommended</div>
+                                12 Months (-20%)
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <p id="durationError" class="field-error"></p>
+            </fieldset>
+
+            <!-- Fieldset 3: Details -->
+            <fieldset>
+                <legend>3. Your Details</legend>
+
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" class="field-input" placeholder="Full Name (E.g. John Doe)"
+                        required aria-describedby="nameError">
+                    <p id="nameError" class="field-error"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="field-input" placeholder="Email Address" required
+                        aria-describedby="emailError">
+                    <p id="emailError" class="field-error"></p>
+                </div>
+
+                <div class="form-group promo-group"> <label for="promoCode">Discount Code</label>
+                    <div class="promo-controls"> <input type="text" id="promoCode" name="promoCode" class="field-input"
+                            placeholder="Discount Code (Optional)" aria-describedby="promoMessage"> <button
+                            type="button" id="applyPromoBtn" class="secondary-btn">Apply</button> </div>
+                </div>
+                <span id="promoMessage" class="promo-msg"></span>
+            </fieldset>
+
+            <!-- Price Summary -->
+            <aside class="checkout-panel">
+                <div class="price-summary">
+                    <p>Total Due Today</p>
+                    <strong id="totalDue">£0.00</strong>
+                    <span id="recurringText"></span>
+                </div>
+
+                <div class="checkout-details">
+                    <p class="checkout-title">Your plan</p>
+                    <p><span>Tier:</span> <strong id="summaryTier">Plus</strong></p>
+                    <p><span>Duration:</span> <strong id="summaryDuration">12 Months</strong></p>
+                    <p><span>Starts:</span> <strong id="summaryStart">Today</strong></p>
+                    <p><span>Promo:</span> <strong id="summaryPromo">None</strong></p>
+                </div>
+
+                <ul id="summaryPerks" class="checkout-perks">
+                    <li>24/7 gym access</li>
+                    <li>Cancel anytime (monthly)</li>
+                    <li>Instant digital pass after signup</li>
+                </ul>
+
+                <button type="submit" id="submitBtn" class="primary-btn">Complete Sign Up</button>
+            </aside>
+        </form>
+
+        <!-- Member Dashboard -->
+        <section id="member-dashboard" class="dashboard-card is-hidden">
+            <h2>Welcome to GYM!</h2>
+            <div class="digital-pass">
+                <div class="pass-header">DIGITAL PASS</div>
+                <h3 id="dash-name"></h3>
+
+                <div class="pass-details">
+                    <p><strong>Member ID:</strong> <span id="dash-id"></span></p>
+                    <p><strong>Tier:</strong> <span id="dash-tier"></span></p>
+                    <p><strong>Duration:</strong> <span id="dash-duration"></span></p>
+                    <p><strong>Price:</strong> <span id="dash-price"></span></p>
+                    <p><strong>Start Date:</strong> <span id="dash-start"></span></p>
+                    <p><strong>Expiry/Renewal:</strong> <span id="dash-expiry"></span></p>
+                </div>
+
+                <!-- Digital QR Code -->
+                <div class="qr-container">
+                    <img id="dash-qr" src="" alt="Membership Pass QR Code" width="150" height="150"
+                        style="border-radius: 8px; border: 2px solid var(--accent);">
+                </div>
+            </div>
+            <button id="cancelMembershipBtn" class="btn-cancel">Cancel Membership</button>
+        </section>
+
+    </section>
+</div>
+{% endblock %}
+
+{% block page_scripts %}
+<script src="{{ url_for('static', filename='javascript/membership.js') }}"></script>
 {% endblock %}

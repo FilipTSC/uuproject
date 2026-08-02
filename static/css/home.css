@@ -1,0 +1,83 @@
+#header-one {
+  font-size: 3.375rem;
+  font-weight: bold;
+  color: rgba(244, 233, 211, 0.85);
+  -webkit-text-stroke-color: #d4af37;
+  -webkit-text-stroke-width: 0.094rem;
+  /* margin-top: 12.5rem;
+  text-align: center; */
+  margin: 0;
+  position: absolute;
+  top: 40%; /* repositions on y-axis */
+  bottom: 50%;
+  transform: translate(50%, 0% ); /* 2nd % repositions on y-axis */
+}
+
+#header-two {
+  text-align: center;
+  font-style: italic;
+  font-weight: lighter; /* may reposition on x-axis depending on weight chosen */
+  margin: 0;
+  position: absolute;
+  top: 50%; /* repositions on y-axis */
+  bottom: 50%;
+  transform: translate(70%, 0% ); /* 2nd % repositions on y-axis */
+}
+
+h2 {
+  text-align: center;
+  margin: 0;
+  position: absolute;
+  top: 70%; /* repositions on y-axis */
+  bottom: 50%;
+  transform: translate(80%, 0% ); /* 2nd % repositions on y-axis */
+}
+
+img {
+  display: block;
+  padding: 1.25rem;
+  border-radius: 2.5rem;
+  margin-top: 27rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.gallery {
+  display: flex;
+}
+/* Create three equal columns that sits next to each other */
+.column {
+  flex: 1;
+  min-width: 300px;
+}
+
+/*background-image {*/
+/*  filter: blur(8px);*/
+/*  -webkit-filter: blur(8px);*/
+/*}*/
+
+button {
+  background-color: #f3cf55;
+  color: #07111f;
+  border: none;
+  border-radius: 100px;
+  padding: 0.8rem 20rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  /*display: flex;*/
+  /*justify-content: center;*/
+  /*align-items: center;*/
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+
+
