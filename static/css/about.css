@@ -93,6 +93,10 @@
   padding: 2rem 1.25rem;
 }
 
+.about-team h2 {
+  text-align: center;
+}
+
 .about-team .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -134,16 +138,78 @@
   margin-bottom: 1rem;
 }
 
-.about-info .info-card {
-  padding: 1.25rem;
-  text-align: center;
+.about-info .carousel {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
 }
 
-.about-info .info-card img {
-  width: 200px;
-  height: 200px;
+.about-info .carousel-track {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  aspect-ratio: 16 / 9;
+}
+
+.about-info .carousel-slide {
+  display: none;
+  position: absolute;
+  inset: 0;
+}
+
+.about-info .carousel-slide.is-active {
+  display: block;
+}
+
+.about-info .carousel-slide img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 12px;
-  margin: 0 auto 0.75rem;
   display: block;
+}
+
+/* Caption overlaps the bottom of the image as a translucent banner instead of sitting below it */
+.about-info .carousel-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(to top, rgba(7, 13, 25, 0.85), rgba(7, 13, 25, 0));
+  border-radius: 0 0 12px 12px;
+  text-align: left;
+}
+
+.about-info .carousel-caption h3 {
+  margin: 0 0 0.25rem;
+  color: #fff;
+}
+
+.about-info .carousel-caption p {
+  margin: 0;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.about-info .carousel-arrow {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(7, 13, 25, 0.65);
+  color: #fff;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.about-info .carousel-arrow:hover {
+  background: rgba(7, 13, 25, 0.85);
 }

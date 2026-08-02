@@ -52,7 +52,11 @@
 <section class="about-mission" aria-labelledby="mission-heading">
     <h2 id="mission-heading">Our Mission</h2>
     <p>
-        Making fitness affordable, accessible, and welcoming for every student — because everyone deserves a place to get stronger.
+        Making fitness affordable, accessible, and welcoming for every student — because everyone deserves a place to get stronger. Staying active should not be intimidating or expensive.
+    </p>
+    <p>
+        Whether you are just beginning your fitness journey or an all time fitness bro, UU FakeGym is the place for you!
+
     </p>
 </section>
 
@@ -73,7 +77,7 @@
                 <img src="{{ url_for('static', filename='Images/fitness_instructor.jpeg') }}" alt="Class instructor leading a group fitness session">
             </div>
             <h3>Class instructor</h3>
-            <p>Always available for our daily group sessions</p>
+            <p>Enjoy daily group sessions</p>
         </div>
 
         <div class="team-card">
@@ -89,21 +93,37 @@
 
 <section class="about-info">
     <h2> Benefits </h2>
-    <div class="info-card">
-        <img src="{{ url_for('static', filename='Images/open_247.jpeg') }}" alt="Gym floor lit up and ready for members at any hour">
-        <h3>Open 24/7</h3>
-        <p>Access whenever suits you</p>
-    </div>
-    <div class="info-card">
-        <img src="{{ url_for('static', filename='Images/belfast_campus.jpeg') }}" alt="View of the Belfast campus near the gym">
-        <h3>Belfast campus</h3>
-        <p>5 min walk from halls</p>
-    </div>
-    <div class="info-card">
-        <img src="{{ url_for('static', filename='Images/free_classes.jpeg') }}" alt="Members taking part in a free group fitness class">
-        <h3>Free classes</h3>
-        <p>Included with Plus and up</p>
+    <div class="carousel" id="benefits-carousel">
+        <button type="button" class="carousel-arrow carousel-arrow-prev" aria-label="Previous benefit">&#10094;</button>
+        <div class="carousel-track">
+            <div class="carousel-slide is-active">
+                <img src="{{ url_for('static', filename='Images/open_247.jpeg') }}" alt="Gym floor lit up and ready for members at any hour">
+                <div class="carousel-caption">
+                    <h3>Open 24/7</h3>
+                    <p>Access whenever suits you</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="{{ url_for('static', filename='Images/belfast_campus.jpeg') }}" alt="View of the Belfast campus near the gym">
+                <div class="carousel-caption">
+                    <h3>Belfast Campus</h3>
+                    <p>Only a 5 minute walk from the Belfast campus</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="{{ url_for('static', filename='Images/free_classes.jpeg') }}" alt="Members taking part in a free group fitness class">
+                <div class="carousel-caption">
+                    <h3>Free classes</h3>
+                    <p>Included with all memberships</p>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="carousel-arrow carousel-arrow-next" aria-label="Next benefit">&#10095;</button>
     </div>
 </section>
 
+{% endblock %}
+
+{% block page_scripts %}
+<script src="{{ url_for('static', filename='javascript/about.js') }}"></script>
 {% endblock %}
