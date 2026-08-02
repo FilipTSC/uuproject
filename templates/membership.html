@@ -3,10 +3,6 @@
 {% block title %}Membership{% endblock %}
 
 {% block head_extra %}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,900&display=swap"
-    rel="stylesheet">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/membership.css') }}">
 {% endblock %}
 
@@ -15,7 +11,7 @@
     <section class="signup-container">
 
         <header class="form-header">
-            <h1>GYM</h1>
+            <h1>Platinum Fitness</h1>
             <p>Select your tier, choose your plan, and start today.</p>
         </header>
 
@@ -156,9 +152,9 @@
 
         <!-- Member Dashboard -->
         <section id="member-dashboard" class="dashboard-card is-hidden">
-            <h2>Welcome to GYM!</h2>
+            <h2>Welcome to Platinum Fitness!</h2>
             <div class="digital-pass">
-                <div class="pass-header">DIGITAL PASS</div>
+                <div class="pass-header">Digital Pass</div>
                 <h3 id="dash-name"></h3>
 
                 <div class="pass-details">
@@ -172,7 +168,7 @@
 
                 <!-- Digital QR Code -->
                 <div class="qr-container">
-                    <img id="dash-qr" src="" alt="Membership Pass QR Code" width="150" height="150"
+                    <img id="dash-qr" src="" alt="" width="150" height="150"
                         style="border-radius: 8px; border: 2px solid var(--accent);">
                 </div>
             </div>

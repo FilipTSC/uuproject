@@ -1,5 +1,5 @@
 /* =========================
-   Base / Shared Styles
+   Form styles
 ========================= */
 
 .page-wrapper {
@@ -17,7 +17,6 @@
     padding: clamp(1rem, 2.2vw, 2.2rem);
     box-shadow: 0 20px 42px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
 }
 
 .form-header {
@@ -107,7 +106,6 @@ legend {
 
 .tier-content .price {
     margin: 0;
-    color: #fff;
     font-size: 1.8rem;
     font-weight: 900;
 }
@@ -414,7 +412,7 @@ legend {
     top: 15px;
     right: 20px;
     color: var(--accent);
-    font-size: 0.7rem;
+    font-size: 1rem;
     letter-spacing: 2px;
 }
 
