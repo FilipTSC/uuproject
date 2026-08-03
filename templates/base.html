@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
     content="{% block meta_description %}Platinum Fitness in Belfast. Explore memberships, contact the team, and start your fitness journey today.{% endblock %}">
     <title>{% block title %}Site{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
@@ -13,8 +14,15 @@
   <body>
     <header class="site-header">
       <div class="container">
-        <a class="brand" href="{{ url_for('index') }}">Platinum Fitness</a>
-        <nav class="site-nav" aria-label="Primary navigation">
+        <div class="header-row">
+          <a class="brand" href="{{ url_for('index') }}">Platinum Fitness</a>
+          <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="siteNav">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+        <nav class="site-nav" id="siteNav" aria-label="Primary navigation">
           <ul class="nav-links">
             <li><a href="{{ url_for('index') }}">Home</a></li>
             <li><a href="{{ url_for('membership') }}">Membership</a></li>
@@ -27,9 +35,9 @@
   <main>
     {% block content %}{% endblock %}
   </main>
-    <footer class="site-footer">
-      <p>© 2026 Platinum Fitness. All rights reserved.</p>
-    </footer>
+  <footer class="site-footer">
+    <p>© 2026 Platinum Fitness. All rights reserved.</p>
+  </footer>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="{{ url_for('static', filename='javascript/global.js') }}"></script>
   {% block page_scripts %}{% endblock %}

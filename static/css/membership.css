@@ -181,7 +181,7 @@ legend {
 }
 
 .duration-btn span {
-    min-height: 66px;
+    min-height: 70px;
     border-radius: 8px;
     border: 1px solid var(--glass-border);
     background: rgba(255, 255, 255, 0.03);
@@ -290,8 +290,9 @@ legend {
 }
 
 .btn-cancel {
-    width: 100%;
-    margin-top: 1rem;
+    display: block;
+    width: min(100%, 520px);
+    margin: auto;
     padding: 0.9rem 1rem;
     background: transparent;
     color: var(--error-color);
