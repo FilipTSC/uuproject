@@ -1,9 +1,5 @@
 $(function () {
-    console.log("GYM: membership.js loaded successfully.");
-
-    // Check if user is already registered on load
-    const membershipStorageKey = 'gymMembership';
-    checkExistingMember();
+    console.log("Platinum Fitness: membership.js loaded successfully.");
 
     const basePrices = {
         "Core": 22,
@@ -35,6 +31,13 @@ $(function () {
     let currentTotal = 0;
     let isRecurring = false;
     let promoDiscount = 0;
+
+    // Check if user is already registered on load
+    const membershipStorageKey = 'gymMembership';
+    checkExistingMember();
+
+    // Initial trigger on load to calculate cost of pre-selected Plus / 12 Months
+    calculatePrice();
 
     // Recalculate price whenever tier or duration changes
     $('input[name="tier"], input[name="duration"]').on('change', function () {
@@ -107,8 +110,9 @@ $(function () {
         $('#summaryPromo').text(promoText);
 
         const durationValue = $('input[name="duration"]:checked').val();
-        const perks = getPerksForSelection(tier, durationValue);
+        const perks = getPerksBySelection(tier, durationValue);
 
+        // Loops through the perks array and creates an HTML list item for each perk, then joins them into a single string
         const perksHtml = perks.map(function (perk) {
             return "<li>" + perk + "</li>";
         }).join("");
@@ -119,7 +123,7 @@ $(function () {
         $('#summaryStart').text(today);
     }
 
-    function getPerksForSelection(tier, duration) {
+    function getPerksBySelection(tier, duration) {
         const isShortTermPass = ["1_day", "3_days", "7_days"].includes(duration);
         const isFixedTermMembership = ["6_months", "12_months"].includes(duration);
 
@@ -129,7 +133,7 @@ $(function () {
         } else if (isShortTermPass) {
             flexibilityPerk = "No contract - pass expires automatically";
         } else if (isFixedTermMembership) {
-            flexibilityPerk = "Fixed-term commitment for lower monthly price";
+            flexibilityPerk = "Fixed-term commitment for a lower monthly price";
         }
 
         const corePerks = [
@@ -141,12 +145,11 @@ $(function () {
         if (tier === "Plus") {
             return corePerks.concat(tierExtras.Plus);
         }
-
-        if (tier === "Ultimate") {
+        else if (tier === "Ultimate") {
             return corePerks.concat(tierExtras.Plus, tierExtras.Ultimate);
         }
 
-        // Core (or fallback)
+        // Return Core (or fallback)
         return corePerks;
     }
 
@@ -244,7 +247,7 @@ $(function () {
             const expiryDateStr = calculateExpiryDate(today, durationVal);
 
             // Generate QR code URL
-            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(memberId)}`;
+            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${memberId}`;
 
             const gymMember = {
                 memberId: memberId,
@@ -269,7 +272,7 @@ $(function () {
         return /^[a-zA-Z'-]{2,}(?:\s+[a-zA-Z'-]{2,})+$/.test(name);
     }
 
-    // Handle Membership Cancellation
+    // Handles Membership Cancellation
     $('#cancelMembershipBtn').on('click', function () {
         if (confirm("Are you sure you want to cancel your membership?")) {
             localStorage.removeItem(membershipStorageKey);
@@ -303,13 +306,10 @@ $(function () {
 
         // Update QR code image source
         if (data.memberId) {
-            const qrSrc = data.qrCodeUrl || `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(data.memberId)}`;
+            const qrSrc = data.qrCodeUrl || `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${data.memberId}`;
             $('#dash-qr').attr({ 'src': qrSrc, 'alt': `Membership Pass QR Code for member: ${data.memberId}` });
         }
 
         $('#member-dashboard').fadeIn(600);
     }
-
-    // Initial trigger on load to calculate pre-selected Plus / 12 Months
-    calculatePrice();
 });
