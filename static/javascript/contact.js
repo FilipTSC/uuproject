@@ -67,13 +67,24 @@ $(function () {
 
     switch (fieldName) {
       case 'name':
-        return trimmed.length >= 2 || 'Please enter your name.';
+        if (!trimmed) return 'Please enter your name.';
+        if (trimmed.length < 2) return 'Please enter at least 2 characters for your name.';
+        if (!/^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+$/.test(trimmed)) return 'Please use letters, spaces, apostrophes, or hyphens only.';
+        return true;
       case 'email':
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed) || 'Please enter a valid email address.';
+        if (!trimmed) return 'Please enter your email address.';
+        if (/\s/.test(trimmed)) return 'Please remove any spaces from your email address.';
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) return 'Please enter a valid email address such as name@example.com.';
+        return true;
       case 'subject':
-        return trimmed.length >= 3 || 'Please add a short subject.';
+        if (!trimmed) return 'Please enter a subject.';
+        if (trimmed.length < 3) return 'Please use at least 3 characters for the subject.';
+        if (!/[A-Za-z]/.test(trimmed)) return 'Please include some letters in the subject.';
+        return true;
       case 'message':
-        return trimmed.length >= 10 || 'Please share a little more detail.';
+        if (!trimmed) return 'Please write a short message.';
+        if (trimmed.length < 10) return 'Please write at least 10 characters so we can help you properly.';
+        return true;
       default:
         return true;
     }

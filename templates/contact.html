@@ -65,9 +65,12 @@
   <section class="saved-messages" aria-labelledby="saved-messages-heading">
     <div class="saved-header">
       <h2 id="saved-messages-heading">Recent mock enquiries</h2>
-      <p>Stored locally in your browser so the page feels interactive.</p>
     </div>
     <ul id="savedMessages" class="saved-list"></ul>
   </section>
 </section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='javascript/contact.js') }}"></script>
 {% endblock %}
