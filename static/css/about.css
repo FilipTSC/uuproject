@@ -39,13 +39,7 @@
 
 .about-story h2 {
   text-align: center;
-}
-
-.about-story .hero-actions {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-top: 1rem;
+  color: var(--accent);
 }
 
 .story-images {
@@ -86,6 +80,7 @@
 
 .about-mission h2 {
   text-align: center;
+  color: var(--accent);
 }
 
 /* about-team: "Meet the team" section and its card grid (templates/about.html .about-team) */
@@ -95,6 +90,7 @@
 
 .about-team h2 {
   text-align: center;
+  color: var(--accent);
 }
 
 .about-team .team-grid {
@@ -136,6 +132,7 @@
   grid-column: 1 / -1;
   text-align: center;
   margin-bottom: 1rem;
+  color: var(--accent);
 }
 
 .about-info .carousel {
