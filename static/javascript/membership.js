@@ -305,9 +305,8 @@ $(function () {
         $('#dash-expiry').text(data.expiryDate || 'N/A');
 
         // Update QR code image source
-        if (data.memberId) {
-            const qrSrc = data.qrCodeUrl || `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${data.memberId}`;
-            $('#dash-qr').attr({ 'src': qrSrc, 'alt': `Membership Pass QR Code for member: ${data.memberId}` });
+        if (data.qrCodeUrl) {
+            $('#dash-qr').attr({ 'src': data.qrCodeUrl, 'alt': `Membership Pass QR Code for member: ${data.memberId}` });
         }
 
         $('#member-dashboard').fadeIn(600);
