@@ -2,11 +2,12 @@
   --accent: #d4af37;
   --accent-hover: #f3cf55;
   --bg-dark: #070d19;
-  --text-main: #ffffff;
+  --text-main: rgba(244, 233, 211, 0.85);
   --text-muted: #94a3b8;
   --error-color: #ff3366;
   --glass-bg: rgba(11, 22, 44, 0.85);
   --glass-border: rgba(212, 175, 55, 0.2);
+  --sticky-header-offset: 88px;
 }
 
 * {
@@ -20,8 +21,25 @@ body {
   flex-direction: column;
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
   line-height: 1.6;
-  background: linear-gradient(135deg, var(--bg-dark), #10213f 70%, #0f1c34);
   color: var(--text-main);
+  background: black;
+  /* color: #CCFF00;  /* remove if plain white is preferred (or another colour) */
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+  background-image: url("/static/gym.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  filter: blur(5px) brightness(60%);
 }
 
 main {
@@ -60,7 +78,6 @@ select {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  flex-wrap: wrap;
 }
 
 .header-row {
@@ -146,7 +163,7 @@ select {
 @media (max-width: 640px) {
   .container {
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
   }
 
   .header-row {
@@ -168,6 +185,7 @@ select {
 
   .nav-links {
     width: 100%;
+    justify-content: space-between;
     flex-direction: column;
     gap: 0.25rem;
     margin-top: 0.75rem;
@@ -181,4 +199,60 @@ select {
     display: block;
     width: 100%;
   }
+}
+
+/* --- Contact and Membership universal styles --- */
+
+.field-input {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  background: rgba(4, 12, 22, 0.8);
+  color: var(--text-main);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.field-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+  transform: translateY(-1px);
+}
+
+.field-input.is-invalid {
+  border-color: var(--error-color);
+}
+
+.field-error {
+  min-height: 1.1rem;
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--error-color);
+}
+
+.primary-btn,
+.secondary-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 0.8rem 1.1rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: #07111f;
+}
+
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-main);
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+  transform: translateY(-2px);
 }

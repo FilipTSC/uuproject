@@ -20,7 +20,7 @@
       <ul class="contact-list">
         <li><strong>Address:</strong> 42 Wellness Avenue, Belfast</li>
         <li><strong>Phone:</strong> +44 20 5555 1234</li>
-        <li><strong>Email:</strong> hello@uufakegym.co</li>
+        <li><strong>Email:</strong> hello@platinumfitness.co</li>
       </ul>
       <p class="contact-note">Our front desk is happy to help with your first session or a personalised fitness plan.</p>
     </article>
@@ -65,12 +65,13 @@
   <section class="saved-messages" aria-labelledby="saved-messages-heading">
     <div class="saved-header">
       <h2 id="saved-messages-heading">Recent mock enquiries</h2>
+      <p>Stored locally in your browser so the page feels interactive.</p>
     </div>
     <ul id="savedMessages" class="saved-list"></ul>
   </section>
 </section>
 {% endblock %}
 
-{% block scripts %}
+{% block page_scripts %}
 <script src="{{ url_for('static', filename='javascript/contact.js') }}"></script>
 {% endblock %}

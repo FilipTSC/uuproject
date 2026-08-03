@@ -1,0 +1,503 @@
+/* =========================
+   Form styles
+========================= */
+
+.page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: clamp(0.75rem, 2vw, 2rem);
+}
+
+.signup-container {
+    width: min(100%, 1100px);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: clamp(1rem, 2.2vw, 2.2rem);
+    box-shadow: 0 20px 42px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 1.2rem;
+}
+
+.form-header h1 {
+    margin: 0;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: clamp(1.7rem, 4vw, 2.3rem);
+    letter-spacing: 2px;
+    font-style: italic;
+}
+
+.form-header p {
+    margin: 0.4rem 0 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+#gym-signup-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+}
+
+fieldset {
+    border: 0;
+    border-top: 1px solid var(--glass-border);
+    margin: 0;
+    padding: 1rem 0 0;
+}
+
+legend {
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0 8px;
+}
+
+/* =========================
+   Tier Cards
+========================= */
+
+.tier-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+    margin-bottom: 0.5rem;
+}
+
+.tier-card,
+.duration-btn {
+    cursor: pointer;
+}
+
+.tier-card input[type="radio"],
+.duration-btn input[type="radio"] {
+    display: none;
+}
+
+.tier-content {
+    height: 100%;
+    min-height: 44px;
+    border-radius: 10px;
+    border: 2px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tier-content .tier-title {
+    margin: 0 0 10px;
+    color: var(--accent);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.tier-content .price {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 900;
+}
+
+.tier-content .price span {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.tier-content .desc {
+    margin: 10px 0 0;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    line-height: 1.35;
+}
+
+.tier-card input[type="radio"]:checked+.tier-content {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(212, 175, 55, 0.25);
+}
+
+.tier-card input[type="radio"]:checked+.tier-content .tier-title,
+.tier-card input[type="radio"]:checked+.tier-content .price,
+.tier-card input[type="radio"]:checked+.tier-content .price span,
+.tier-card input[type="radio"]:checked+.tier-content .desc,
+.tier-card input[type="radio"]:checked+.tier-content .recommended-badge {
+    color: var(--bg-dark);
+}
+
+.tier-card input[type="radio"]:checked+.tier-content .recommended-badge {
+    background: var(--bg-dark);
+    color: var(--accent);
+}
+
+.recommended-badge {
+    align-self: center;
+    display: inline-block;
+    margin-bottom: 8px;
+    border-radius: 999px;
+    padding: 2px 8px;
+    background: var(--accent);
+    color: var(--bg-dark);
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+}
+
+/* =========================
+   Duration Buttons
+========================= */
+
+.duration-section {
+    margin-bottom: 1rem;
+}
+
+.duration-label {
+    margin: 0 0 0.6rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.duration-options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+
+.duration-btn span {
+    min-height: 66px;
+    border-radius: 8px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-main);
+    padding: 0.75rem 0.5rem;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+}
+
+.duration-btn input[type="radio"]:checked+span {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg-dark);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+}
+
+.duration-btn input[type="radio"]:checked+span .recommended-badge-small {
+    background: var(--bg-dark);
+    color: var(--accent);
+}
+
+.duration-btn span.has-badge {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.recommended-badge-small {
+    display: inline-block;
+    border-radius: 6px;
+    padding: 1px 6px;
+    background: var(--accent);
+    color: var(--bg-dark);
+    text-transform: uppercase;
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+}
+
+/* =========================
+   Form Inputs
+========================= */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin-bottom: 0.8rem;
+}
+
+.form-group>label {
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.promo-group {
+    gap: 0.45rem;
+}
+
+.promo-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.promo-msg {
+    display: block;
+    margin-top: 0.2rem;
+    font-size: 0.85rem;
+}
+
+.promo-success {
+    color: #4ade80;
+}
+
+.promo-fail {
+    color: var(--error-color);
+}
+
+/* =========================
+   Buttons
+========================= */
+
+#submitBtn {
+    width: 100%;
+    display: block;
+    align-self: stretch;
+}
+
+.tier-content:hover {
+    border-color: var(--accent);
+    background: rgba(212, 175, 55, 0.08);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 18px rgba(212, 175, 55, 0.18);
+}
+
+.duration-btn span:hover {
+    border-color: var(--accent);
+    background: rgba(212, 175, 55, 0.1);
+    transform: translateY(-2px);
+}
+
+.btn-cancel {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.9rem 1rem;
+    background: transparent;
+    color: var(--error-color);
+    border: 2px solid var(--error-color);
+    border-radius: 8px;
+}
+
+.btn-cancel:hover {
+    background: var(--error-color);
+    color: #fff;
+    box-shadow: 0 0 12px rgba(255, 51, 102, 0.3);
+}
+
+/* =========================
+   Checkout Panel
+========================= */
+
+.checkout-panel {
+    margin-top: 0.5rem;
+    border-radius: 12px;
+    padding: 0.9rem;
+    background: rgba(8, 15, 28, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.28);
+}
+
+.price-summary {
+    margin-bottom: 0.8rem;
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.35);
+    padding: 0.8rem;
+    text-align: left;
+}
+
+.price-summary p {
+    margin: 0 0 0.35rem;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.price-summary strong {
+    margin: 0;
+    color: var(--accent);
+    font-size: 1.65rem;
+    line-height: 1;
+    display: block;
+}
+
+.checkout-details {
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 10px;
+    padding: 0.7rem 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.checkout-details .checkout-title {
+    margin: 0 0 0.45rem;
+    color: var(--accent);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.checkout-details p {
+    margin: 0.28rem 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.6rem;
+    color: var(--text-muted);
+    font-size: 0.86rem;
+}
+
+.checkout-details strong {
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.checkout-perks {
+    margin: 0 0 0.75rem;
+    padding-left: 1rem;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    line-height: 1.35;
+}
+
+.checkout-perks li {
+    margin-bottom: 0.25rem;
+}
+
+/* =========================
+   Dashboard / Pass
+========================= */
+
+.dashboard-card h2 {
+    text-align: center;
+    font-style: italic;
+    font-weight: 900;
+    margin: 0 auto;
+    max-width: 760px;
+}
+
+.digital-pass {
+    width: min(100%, 520px);
+    margin: 1.25rem auto;
+    border-radius: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-left: 4px solid var(--accent);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #111d35 0%, #070d19 100%);
+}
+
+.pass-header {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: var(--accent);
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+#dash-name {
+    margin: 0 0 1rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+
+.pass-details p {
+    margin: 0.5rem 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.pass-details span {
+    color: #fff;
+    font-weight: 700;
+}
+
+.is-hidden {
+    display: none;
+}
+
+.qr-container {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.qr-image {
+    border-radius: 8px;
+    border: 2px solid var(--accent);
+}
+
+/* =========================
+   Tablet / Small Desktop
+========================= */
+
+@media (min-width: 640px) {
+    .tier-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .duration-options {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .promo-controls {
+        flex-direction: row;
+    }
+
+    .promo-controls .field-input {
+        flex: 1;
+    }
+}
+
+/* =========================
+   Desktop Layout
+========================= */
+
+@media (min-width: 1024px) {
+    .signup-container {
+        max-width: 1160px;
+        padding: 1.4rem 1.6rem;
+    }
+
+    #gym-signup-form {
+        grid-template-columns: minmax(0, 1.55fr) minmax(280px, 340px);
+        gap: 0.9rem 1rem;
+        align-items: start;
+    }
+
+    #gym-signup-form>fieldset {
+        grid-column: 1;
+    }
+
+    .tier-cards {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .checkout-panel {
+        grid-column: 2;
+        grid-row: 1 / span 3;
+        position: sticky;
+        top: calc(var(--sticky-header-offset) + 0.35rem);
+        margin-top: 0.9rem;
+    }
+}

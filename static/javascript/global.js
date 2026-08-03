@@ -1,3 +1,7 @@
+function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).trim());
+}
+
 $(function () {
   const navToggle = $('.nav-toggle');
   const siteNav = $('.site-nav');

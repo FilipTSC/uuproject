@@ -71,64 +71,10 @@ label {
   font-weight: 600;
 }
 
-.field-input {
-  width: 100%;
-  padding: 0.8rem 0.9rem;
-  border-radius: 12px;
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  background: rgba(4, 12, 22, 0.8);
-  color: var(--text-main);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-}
-
-.field-input:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
-  transform: translateY(-1px);
-}
-
-.field-input.is-invalid {
-  border-color: var(--error-color);
-}
-
-.field-error {
-  min-height: 1.1rem;
-  margin: 0;
-  font-size: 0.9rem;
-  color: var(--error-color);
-}
-
 .form-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-}
-
-.primary-btn,
-.secondary-btn {
-  border: none;
-  border-radius: 999px;
-  padding: 0.8rem 1.1rem;
-  font-size: 0.95rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.primary-btn {
-  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
-  color: #07111f;
-}
-
-.secondary-btn {
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--text-main);
-}
-
-.primary-btn:hover,
-.secondary-btn:hover {
-  transform: translateY(-2px);
 }
 
 .form-status {
