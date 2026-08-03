@@ -93,7 +93,7 @@ $(function () {
 
         // Update the UI
         $('#totalDue').text(`£${currentTotal.toFixed(2)}`);
-        $('#recurringText').text(isRecurring ? "/ month" : " (One-off pass)");
+        $('#recurringText').text(isRecurring ? "/month" : " (One-off pass)");
         updateCheckoutDetails();
     }
 
@@ -265,7 +265,7 @@ $(function () {
         }
     });
 
-    function validateFullName(name) { 
+    function validateFullName(name) {
         return /^[a-zA-Z'-]{2,}(?:\s+[a-zA-Z'-]{2,})+$/.test(name);
     }
 
@@ -304,7 +304,7 @@ $(function () {
         // Update QR code image source
         if (data.memberId) {
             const qrSrc = data.qrCodeUrl || `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(data.memberId)}`;
-            $('#dash-qr').attr({'src': qrSrc, 'alt': `Membership Pass QR Code for member: ${data.memberId}`});
+            $('#dash-qr').attr({ 'src': qrSrc, 'alt': `Membership Pass QR Code for member: ${data.memberId}` });
         }
 
         $('#member-dashboard').fadeIn(600);
