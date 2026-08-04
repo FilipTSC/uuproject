@@ -54,6 +54,7 @@ $(function () {
         if (!tier || !duration) {
             $('#totalDue').text('£0.00');
             $('#recurringText').text('');
+            updateCheckoutDetails();
             return;
         }
 
@@ -102,14 +103,15 @@ $(function () {
 
     function updateCheckoutDetails() {
         const tier = $('input[name="tier"]:checked').val() || 'Not selected';
-        const durationLabel = $('input[name="duration"]:checked').next('span').clone().children().remove().end().text().trim() || 'Not selected';
+        const durationValue = $('input[name="duration"]:checked').val();
+        const durationLabel = durationTexts[durationValue] || 'Not selected';
         const promoText = promoDiscount > 0 ? `${Math.round(promoDiscount * 100)}% applied` : 'None';
 
         $('#summaryTier').text(tier);
         $('#summaryDuration').text(durationLabel);
         $('#summaryPromo').text(promoText);
 
-        const durationValue = $('input[name="duration"]:checked').val();
+        
         const perks = getPerksBySelection(tier, durationValue);
 
         // Loops through the perks array and creates an HTML list item for each perk, then joins them into a single string
@@ -124,6 +126,10 @@ $(function () {
     }
 
     function getPerksBySelection(tier, duration) {
+        if (tier == "Not selected") {
+            return [];
+        }
+
         const isShortTermPass = ["1_day", "3_days", "7_days"].includes(duration);
         const isFixedTermMembership = ["6_months", "12_months"].includes(duration);
 
