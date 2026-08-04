@@ -7,19 +7,22 @@
   margin: 0;
   position: absolute;
   top: 40%; /* repositions on y-axis */
-  bottom: 50%;
-  transform: translate(50%, 0% ); /* 2nd % repositions on y-axis */
+  left: 50%;
+  transform: translateX(-50%); /* 2nd % repositions on y-axis */
+  white-space: nowrap;
+  overflow-wrap: break-word;
 }
 
 #header-two {
   text-align: center;
   font-style: italic;
   font-weight: lighter; /* may reposition on x-axis depending on weight chosen */
-  margin: 0;
   position: absolute;
   top: 50%; /* repositions on y-axis */
-  bottom: 50%;
-  transform: translate(70%, 0% ); /* 2nd % repositions on y-axis */
+  left: 50%;
+  transform: translateX(-50%); /* 2nd % repositions on y-axis */
+  white-space: nowrap;
+  overflow-wrap: break-word;
 }
 
 .h2what {
@@ -28,8 +31,10 @@
   margin: 0;
   position: absolute;
   top: 70%; /* repositions on y-axis */
-  left: 525px;
-  transform: translate(0%, 0% ); /* 2nd % repositions on y-axis */
+  left: 50%;
+  transform: translateX(-50%); /* 2nd % repositions on y-axis */
+  white-space: nowrap;
+  overflow-wrap: break-word;
 }
 
 .h2about {
@@ -39,7 +44,6 @@
   margin-top: 100px;
   position: relative;
   top: 100%; /* repositions on y-axis */
-  /*bottom: 50%;*/
   transform: translate(0%, -100% ); /* 2nd % repositions on y-axis */
 }
 
@@ -76,27 +80,12 @@
 
 /* Create three equal columns that sits next to each other */
 .column {
-  /*flex: 1;*/
   min-width: 300px;
   display: table-cell;
   padding: 16px;
 }
 
 button {
-  background-color: #f3cf55;
-  color: #07111f;
-  border: none;
-  border-radius: 100px;
-  padding: 0.5rem 5rem;
-  margin-left: 5rem;
-  font-size: 0.95rem;
-  font-weight: 700;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-button-about {
   background-color: #f3cf55;
   color: #07111f;
   border: none;
@@ -146,7 +135,3 @@ main {
   text-decoration: underline;
   color: #f3cf55;
 }
-
-
-
-

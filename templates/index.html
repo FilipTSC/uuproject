@@ -21,13 +21,13 @@
 
 <section class="gallery">
   <figure class="column">
-    <img class="gym-img" src="{{ url_for('static', filename='Images/gym2.jpeg') }}" width="400" height="300" alt="gym equipment on a gym floor as sun shines through the window" style="opacity: 1; transition: opacity 0.5s;">
+    <img class="gym-img" src="{{ url_for('static', filename='Images/gym2.jpeg') }}" width="400" height="300" alt="gym equipment on a gym floor as sun shines through the window">
   </figure>
   <figure class="column">
-    <img class="gym-img" src="{{ url_for('static', filename='Images/gym5.jpeg') }}" width="400" height="300" alt="man helping gym goer lift weights" style="opacity: 1; transition: opacity 0.5s;">
+    <img class="gym-img" src="{{ url_for('static', filename='Images/gym5.jpeg') }}" width="400" height="300" alt="man helping gym goer lift weights">
   </figure>
   <figure class="column">
-    <img class="gym-img" src="{{ url_for('static', filename='Images/gym6.jpeg') }}" width="400" height="300" alt="man lifting bar bell from a gym floor" style="opacity: 1; transition: opacity 0.5s;">
+    <img class="gym-img" src="{{ url_for('static', filename='Images/gym6.jpeg') }}" width="400" height="300" alt="man lifting bar bell from a gym floor">
   </figure>
 </section>
 
@@ -48,7 +48,7 @@
 <div class="cards-container-about">
   <article class="contact-card gallery">
     <span style="font-weight: bold">Platinum Fitness is on its way to becoming Belfast's go-to gym for students. </br>
-      Affordable and with a host of benefits <a class='about' href="{{ url_for('about') }}">lets learn a bit more</a>
+      Affordable and with a host of benefits <a class='about' href="{{ url_for('about') }}">let's learn a bit more</a>
       about Platinum Fitness</br>and its great team!
     </span>
   </article>
@@ -56,20 +56,6 @@
 
 
 <script>
-  /* document.querySelectorAll('.gym-img').forEach((image) => {
-    const text = image.nextElementSibling;
-
-    image.onmouseover = function () {
-      image.style.opacity = 0.5;
-      text.style.display = 'block';
-    }
-
-    image.onmouseout = function () {
-      image.style.opacity = 1;
-      text.style.display = 'none';
-    }
-  }); */
-
   document.getElementById("button").onclick = function () {
     window.location.href = "{{ url_for('membership') }}";
   };
