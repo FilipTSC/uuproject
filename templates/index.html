@@ -14,22 +14,22 @@
   <button id="button">Sign up!</button>
 </strong>
 </mark>
-<!-- <h1>Welcome to UU Fakegym</h1> -->
-<!-- <p>Welcome to the home page (placeholder).</p> -->
+
 <h1 id="header-one">WORK. TRAIN. PLAY.</h1>
 <h2 id="header-two">It never gets easier. You just get stronger.</h2>
 <h2 class="h2what">What's going on at Platinum Fitness</h2>
+
 <section class="gallery">
   <figure class="column">
-    <img class="gym-img" src="{{ url_for('static', filename='gym2.jpeg') }}" width="400" height="300" alt="gym equipment on a gym floor as sun shines through the window" style="opacity: 1; transition: opacity 0.5s;">
+    <img class="gym-img" src="{{ url_for('static', filename='Images/gym2.jpeg') }}" width="400" height="300" alt="gym equipment on a gym floor as sun shines through the window" style="opacity: 1; transition: opacity 0.5s;">
     <!-- <div class="gym-text" style="display: none;">Morning Classes</div> -->
   </figure>
   <figure class="column">
-    <img class="gym-img" src="{{ url_for('static', filename='gym3.jpg') }}" width="400" height="300" alt="man lifting bar bell from a gym floor" style="opacity: 1; transition: opacity 0.5s;">
+    <img class="gym-img" src="{{ url_for('static', filename='Images/gym5.jpeg') }}" width="400" height="300" alt="man helping gym goer lift weights" style="opacity: 1; transition: opacity 0.5s;">
     <!-- <div class="gym-text" style="display: none;">Morning Classes</div> -->
   </figure>
   <figure class="column">
-    <img class="gym-img" src="{{ url_for('static', filename='gym4.jpg') }}" width="400" height="300" alt="man lifting bar bell from a gym floor" style="opacity: 1; transition: opacity 0.5s;">
+    <img class="gym-img" src="{{ url_for('static', filename='Images/gym6.jpeg') }}" width="400" height="300" alt="man lifting bar bell from a gym floor" style="opacity: 1; transition: opacity 0.5s;">
    <!-- <div class="gym-text" style="display: none;">Morning Classes</div> -->
   </figure>
 </section>
@@ -42,11 +42,21 @@
     <strong>Personalised Service</strong>
   </article>
   <article class="contact-card gallery">
-    <strong>Free Hydration</strong>
+    <strong>Functional Training</strong>
   </article>
 </div>
 
-<h2 class="h2about">Learn More About Platinum Fitness</h2>
+<h2 class="h2about">Learn more about Platinum Fitness</h2>
+
+<div class="cards-container-about">
+  <article class="contact-card gallery">
+    <span style="font-weight: bold">Platinum Fitness is on its way to becoming Belfast's go-to gym for students. </br>
+      Affordable and with a host of benefits <a class='about' href="{{ url_for('about') }}">lets learn a bit more</a>
+      about Platinum Fitness</br>and its great team!
+    </span>
+  </article>
+</div>
+
 
 <script>
   /* document.querySelectorAll('.gym-img').forEach((image) => {
@@ -65,6 +75,9 @@
 
   document.getElementById("button").onclick = function () {
     window.location.href = "{{ url_for('membership') }}";
+  };
+  document.getElementById("button-about").onclick = function () {
+    window.location.href = "{{ url_for('about') }}";
   };
 </script>
 
