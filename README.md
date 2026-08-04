@@ -1,3 +1,25 @@
+# Project Theme
+
+The theme of our project centres around a Belfast based gym.
+
+# Individual Roles
+
+## Filip
+Responsible for folder structure, Flash/Jinja set up and hosting of the repository through his personal GitHub account.
+His contribution towards the gym themed website was coding of the Membership section.
+
+## Mark
+Mark's contribution was coding of the Contact section.
+
+## Stephen
+Stephen worked on the Home page.
+
+## Rachel
+Rachel completed the About section.
+
+# Git Repository
+https://github.com/FilipTSC/uuproject
+
 # Minimal Flask site
 
 This repository contains a simple Flask app with Jinja templates.
