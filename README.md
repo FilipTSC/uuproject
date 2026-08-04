@@ -6,10 +6,10 @@ The theme of our project centres around a Belfast based gym.
 
 ## Filip
 Responsible for folder structure, Flash/Jinja set up and hosting of the repository through his personal GitHub account.
-His contribution towards the gym themed website was coding of the Membership section.
+His contribution towards the gym themed website was coding of the Contact section.
 
 ## Mark
-Mark's contribution was coding of the Contact section.
+Mark's contribution was coding of the Membership section.
 
 ## Stephen
 Stephen worked on the Home page.
