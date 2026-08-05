@@ -9,12 +9,14 @@
 
 {% block content %}
 
+<!-- Hero section is a intro banner, dark overlay behind the photo keeps the heading/text readable -->
 <section class="about-page hero-banner" aria-labelledby="about-heading">
     <p class="section-eyebrow">Platinum Fitness, Belfast</p>
     <h1 id="about-heading">About Us</h1>
     <p>Real equipment, real coaching. Built by students, for students.</p>
 </section>
 
+<!-- Our Story: intro and a 3-photo grid -->
 <section class="about-story" aria-labelledby="story-heading">
     <h2 id="story-heading">Our Story</h2>
     <p>
@@ -33,22 +35,35 @@
         offering 24/7 access and a place where everyone can feel comfortable
         working towards their goals.
     </p>
+    <!-- tabindex/role="button" let keyboard users tab to these photos and open the lightbox too, not just mouse clicks -->
     <div class="story-images">
         <figure>
-            <img src="{{ url_for('static', filename='Images/gym_image_1.jpeg') }}" alt="A trainer spotting a member during a resistance cable exercise">
+            <img src="{{ url_for('static', filename='Images/gym_image_1.jpeg') }}" alt="A trainer spotting a member during a resistance cable exercise" tabindex="0" role="button" aria-haspopup="dialog">
             <figcaption>Strength &amp; Progress</figcaption>
         </figure>
         <figure>
-            <img src="{{ url_for('static', filename='Images/gym_image_2.jpeg') }}" alt="A trainer coaching a member through a seated shoulder press">
-            <figcaption>Fitness for everyone</figcaption>
+            <img src="{{ url_for('static', filename='Images/gym_image_2.jpeg') }}" alt="A trainer coaching a member through a seated shoulder press" tabindex="0" role="button" aria-haspopup="dialog">
+            <figcaption>Fitness for Everyone</figcaption>
         </figure>
         <figure>
-            <img src="{{ url_for('static', filename='Images/gym_image_3.jpeg') }}" alt="Rows of weight machines and squat racks across the gym floor">
-            <figcaption>Community - train together</figcaption>
+            <img src="{{ url_for('static', filename='Images/gym_image_3.jpeg') }}" alt="Rows of weight machines and squat racks across the gym floor" tabindex="0" role="button" aria-haspopup="dialog">
+            <figcaption>Community - Train Together</figcaption>
         </figure>
+    </div>
+
+    <!-- Single shared lightbox for all three photos above. One modal is reused and its image/caption are filled in by about.js, instead of duplicating a modal for each photo -->
+    <div class="lightbox-overlay" id="story-lightbox">
+        <div class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Enlarged photo">
+            <button type="button" class="lightbox-close" aria-label="Close enlarged photo">&times;</button>
+            <img src="" alt="" class="lightbox-image">
+            <div class="lightbox-caption">
+                <p class="lightbox-caption-text"></p>
+            </div>
+        </div>
     </div>
 </section>
 
+<!-- Our Mission; short mission statement -->
 <section class="about-mission" aria-labelledby="mission-heading">
     <h2 id="mission-heading">Our Mission</h2>
     <p>
@@ -60,6 +75,7 @@
     </p>
 </section>
 
+<!-- Meet the team; one card per staff member, markup structure is repeated -->
 <section class="about-team" id="team">
     <h2>Meet the team</h2>
     <div class="team-grid">
@@ -91,6 +107,7 @@
     </div>
 </section>
 
+<!-- Benefits: image carousel cycling through gym perks and slide switching is handled in about.js -->
 <section class="about-info">
     <h2> Benefits </h2>
     <div class="carousel" id="benefits-carousel">
