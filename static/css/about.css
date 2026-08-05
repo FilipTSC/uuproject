@@ -1,4 +1,4 @@
-/* about-page / hero-banner: full-width image hero with overlay (templates/about.html .about-page.hero-banner) */
+/* about-page hero-banner: full-width image hero with overlay */
 .hero-banner {
   position: relative;
   width: 100%;
@@ -32,7 +32,7 @@
   margin: 0;
 }
 
-/* about-story: "Our story" section, now also holds the hero CTA buttons (templates/about.html .about-story) */
+/* "Our story" section */
 .about-story {
   padding: 2rem 1.25rem;
   margin: 1.5rem 0;
@@ -47,7 +47,7 @@
   color: var(--accent);
 }
 
-/* story-images: 3-photo grid; each photo is clickable and opens the shared lightbox defined further down */
+/* 3-photo grid; each photo is clickable and opens the shared lightbox */
 .story-images {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -80,7 +80,7 @@
   color: var(--accent);
 }
 
-/* Single column on small screens so photos and captions stay legible instead of squeezing 3-up */
+/* Responsive design: single column on small screens so photos and captions stay legible instead of squeezing 3-up — demonstrates CSS adapting layout across screen sizes */
 @media (max-width: 640px) {
   .story-images {
     grid-template-columns: 1fr;
@@ -157,8 +157,7 @@
   background: rgba(7, 13, 25, 0.85);
 }
 
-/* Three-stop gradient holds near-solid before fading, plus a text-shadow on the caption text below,
-   so the caption stays readable no matter how bright the photo underneath is */
+/* Makes text more readable within photos - gradient stays solid longer before fading and a text shadow on the caption of the photos */
 .lightbox-caption {
   position: absolute;
   left: 0;
@@ -177,7 +176,7 @@
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
-/* about-mission: "Our Mission" section (templates/about.html .about-mission) */
+/* about-mission: "Our Mission" section */
 .about-mission {
   padding: 2rem 1.25rem;
   margin: 1.5rem 0;
@@ -192,7 +191,7 @@
   color: var(--accent);
 }
 
-/* about-team: "Meet the team" section and its card grid (templates/about.html .about-team) */
+/* about-team: "Meet the team" section and its card grid */
 .about-team {
   padding: 2rem 1.25rem;
   margin: 1.5rem 0;
@@ -218,8 +217,6 @@
   text-align: center;
 }
 
-/* Fixed circular frame; the img below is sized to 100%/100% of this box, so changing this one
-   value resizes the photo, its circular crop, and its hover scale together */
 .about-team .team-avatar {
   width: 140px;
   height: 140px;
@@ -242,7 +239,7 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
-/* about-info: quick-facts card row (templates/about.html .about-info) */
+/* about-info: quick facts card row */
 .about-info {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -280,8 +277,7 @@
   aspect-ratio: 16 / 9;
 }
 
-/* Slides stack on top of each other (position: absolute) and cross-fade via opacity + visibility
-   instead of display, so the transition can animate; about.js toggles .is-active to switch slides */
+/* Slides sit stacked on top of each other and fade between using opacity and visibility instead of display, so the transition animates */
 .about-info .carousel-slide {
   position: absolute;
   inset: 0;
@@ -303,7 +299,8 @@
   display: block;
 }
 
-/* Caption overlaps the bottom of the image as a translucent banner instead of sitting below it */
+/* Caption sits on top of the bottom of the image instead of below it like a banner. Positioned absolute and pinned to .carousel-track,
+with a gradient going from dark to transparent so it blends into the photo instead of having a hard line */
 .about-info .carousel-caption {
   position: absolute;
   left: 0;
