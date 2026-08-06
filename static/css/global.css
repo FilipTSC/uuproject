@@ -23,7 +23,6 @@ body {
   line-height: 1.6;
   color: var(--text-main);
   background: black;
-  /* color: #CCFF00;  /* remove if plain white is preferred (or another colour) */
 }
 
 body::before {

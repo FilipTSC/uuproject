@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6 {
   font-style: italic;
   font-weight: lighter; /* may reposition on x-axis depending on weight chosen */
   position: absolute;
-  top: 55%; /* repositions on y-axis */
+  top: 50%; /* repositions on y-axis */
   left: 50%;
   transform: translateX(-50%); /* 2nd % repositions on y-axis */
   white-space: nowrap;
@@ -48,7 +48,6 @@ h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 
 }
-
 .h2about {
   display: block;
   text-align: center;
@@ -91,26 +90,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .gallery {
-  /*position: relative;*/
-  /*display: table;*/
-  /*max-width: 100%;*/
-  /*height: 3.125rem;*/
-
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
   padding: 20px;
-
 }
 
 /* Create three equal columns that sits next to each other */
 .column {
-  /*min-width: 18.75rem;*/
-  /*display: table-cell;*/
-  /*padding: 1rem;*/
-
   margin: 0;
-  /*background: #f4f4f4;*/
   padding: 15px;
   border-radius: 80px;
   text-align: center;
@@ -204,6 +192,5 @@ main {
 
 .hero {
   padding: 3rem;
-  height: 10vh;
 }
 
