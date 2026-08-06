@@ -12,47 +12,48 @@
 <mark class="announcement">
   <strong>Sign up to a membership today and get 10% off using code LAUNCH10
   <button id="button">Sign up!</button>
-</strong>
+  </strong>
 </mark>
 
 <section class="hero">
-   <div>
+   <div class="hero-text">
      <h1 id="header-one">WORK. TRAIN. PLAY.</h1>
-      <h2 id="header-two">It never gets easier. You just get stronger.</h2>
-      <h2 class="h2what">What's going on at Platinum Fitness</h2>
+     <h2 id="header-two">It never gets easier. You just get stronger.</h2>
    </div>
 </section>
 
-<section>
+<section class="gallery-section">
+  <h2 class="h2what">What's going on at Platinum Fitness</h2>
+
   <div class="gallery">
-  <figure class="column">
-    <img class="gym-img" src="{{ url_for('static', filename='Images/gym2.jpeg') }}" width="400" height="300" alt="gym equipment on a gym floor as sun shines through the window">
-    <article class="contact-card gallery">
-    <strong>Morning Classes</strong>
-  </article>
-  </figure>
-  <figure class="column">
-    <img class="gym-img" src="{{ url_for('static', filename='Images/gym5.jpeg') }}" width="400" height="300" alt="man helping gym goer lift weights">
-    <article class="contact-card gallery">
-    <strong>Personalised Service</strong>
-  </article>
-  </figure>
-  <figure class="column">
-    <img class="gym-img" src="{{ url_for('static', filename='Images/gym6.jpeg') }}" width="400" height="300" alt="man lifting bar bell from a gym floor">
-    <article class="contact-card gallery">
-    <strong>Functional Training</strong>
-  </article>
-  </figure>
+    <figure class="column">
+      <img class="gym-img" src="{{ url_for('static', filename='Images/gym2.jpeg') }}" width="400" height="300" alt="gym equipment on a gym floor as sun shines through the window">
+      <article class="contact-card">
+        <strong>Morning Classes</strong>
+      </article>
+    </figure>
+    <figure class="column">
+      <img class="gym-img" src="{{ url_for('static', filename='Images/gym5.jpeg') }}" width="400" height="300" alt="man helping gym goer lift weights">
+      <article class="contact-card">
+        <strong>Personalised Service</strong>
+      </article>
+    </figure>
+    <figure class="column">
+      <img class="gym-img" src="{{ url_for('static', filename='Images/gym6.jpeg') }}" width="400" height="300" alt="man lifting bar bell from a gym floor">
+      <article class="contact-card">
+        <strong>Functional Training</strong>
+      </article>
+    </figure>
   </div>
 </section>
 
 <h2 class="h2about">Learn more about Platinum Fitness</h2>
 
 <div class="cards-container-about">
-  <article class="contact-card gallery">
-    <span style="font-weight: bold">Platinum Fitness is on its way to becoming Belfast's go-to gym for students. </br>
+  <article class="contact-card">
+    <span style="font-weight: bold">Platinum Fitness is on its way to becoming Belfast's go-to gym for students. <br/>
       Affordable and with a host of benefits <a class='about' href="{{ url_for('about') }}">let's learn a bit more</a>
-      about Platinum Fitness</br>and its great team!
+      about Platinum Fitness<br/>and its great team!
     </span>
   </article>
 </div>
