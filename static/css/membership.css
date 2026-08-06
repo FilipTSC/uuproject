@@ -6,7 +6,6 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: clamp(0.75rem, 2vw, 2rem);
 }
 
 .signup-container {
