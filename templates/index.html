@@ -15,33 +15,48 @@
 </strong>
 </mark>
 
-<h1 id="header-one">WORK. TRAIN. PLAY.</h1>
-<h2 id="header-two">It never gets easier. You just get stronger.</h2>
-<h2 class="h2what">What's going on at Platinum Fitness</h2>
+<section class="hero">
+   <div>
+     <h1 id="header-one">WORK. TRAIN. PLAY.</h1>
+      <h2 id="header-two">It never gets easier. You just get stronger.</h2>
+      <h2 class="h2what">What's going on at Platinum Fitness</h2>
+   </div>
+</section>
 
-<section class="gallery">
+<section>
+  <div class="gallery">
   <figure class="column">
     <img class="gym-img" src="{{ url_for('static', filename='Images/gym2.jpeg') }}" width="400" height="300" alt="gym equipment on a gym floor as sun shines through the window">
+    <article class="contact-card gallery">
+    <strong>Morning Classes</strong>
+  </article>
   </figure>
   <figure class="column">
     <img class="gym-img" src="{{ url_for('static', filename='Images/gym5.jpeg') }}" width="400" height="300" alt="man helping gym goer lift weights">
+    <article class="contact-card gallery">
+    <strong>Personalised Service</strong>
+  </article>
   </figure>
   <figure class="column">
     <img class="gym-img" src="{{ url_for('static', filename='Images/gym6.jpeg') }}" width="400" height="300" alt="man lifting bar bell from a gym floor">
-  </figure>
-</section>
-
-<div class="cards-container">
-  <article class="contact-card gallery">
-    <strong>Morning Classes</strong>
-  </article>
-  <article class="contact-card gallery">
-    <strong>Personalised Service</strong>
-  </article>
-  <article class="contact-card gallery">
+    <article class="contact-card gallery">
     <strong>Functional Training</strong>
   </article>
-</div>
+  </figure>
+  </div>
+</section>
+
+<!--<div class="cards-container">-->
+<!--  <article class="contact-card gallery">-->
+<!--    <strong>Morning Classes</strong>-->
+<!--  </article>-->
+<!--  <article class="contact-card gallery">-->
+<!--    <strong>Personalised Service</strong>-->
+<!--  </article>-->
+<!--  <article class="contact-card gallery">-->
+<!--    <strong>Functional Training</strong>-->
+<!--  </article>-->
+<!--</div>-->
 
 <h2 class="h2about">Learn more about Platinum Fitness</h2>
 
@@ -54,14 +69,13 @@
   </article>
 </div>
 
-
 <script>
   document.getElementById("button").onclick = function () {
     window.location.href = "{{ url_for('membership') }}";
   };
-  document.getElementById("button-about").onclick = function () {
-    window.location.href = "{{ url_for('about') }}";
-  };
+  // document.getElementById("button-about").onclick = function () {
+  //   window.location.href = "{{ url_for('about') }}";
+  // };
 </script>
 
 
